@@ -16,10 +16,10 @@ void set_PF(uint32_t result){
     int32_t i,count=0;
     result=result&0xFF;
     for(i=0;i<8;i++){
-        if(x%2==1){
+        if(result%2==1){
             count++;
         }
-        x=x>>1;
+        result=result>>1;
     }
     if(count%2==0) {cpu.eflags.PF=1;}
     else cpu.eflags.PF=0;
