@@ -1,5 +1,53 @@
 #include "cpu/cpu.h"
-
+void set_CF_add(uint32_t result,uint32_t src,size_t data_size){
+    result=sign_ext(result&(0xFFFFFFFF>>(32-data_size)),data_size);
+    src=sign_ext(src&(0xFFFFFFFF>>(32-data_size)),data_size);
+    cpu.eflags.CF=result<src;
+}
+void set_ZF(uint32_t result,size_t data_size){
+    result=result&(0xFFFFFFFF>>(32-data_size));
+    cpu.eflags.ZF=(result==0);
+}
+void set_SF(uint32_t result,size_t data_size){
+    result=sign_ext(result&(0xFFFFFFFF>>(32-data_size)),data_size);
+    cpu.eflags.SF=sign(result);
+}
+void set_PF(uint32_t result){
+    int32_t i,count=0;
+    result=result&0xFF;
+    for(i=0;i<8;i++){
+        if(x%2==1){
+            count++;
+        }
+        x=x>>1;
+    }
+    if(count%2==0) {cpu.eflags.PF=1;}
+    else cpu.eflags.PF=0;
+}
+void set_OF_add(uint32_t result, uint32_t src,uint32_t dest,size_t data_size){
+    switch(data_size){
+        case 8:
+            result=sign_ext(result&0xFF,8);
+            src=sign_ext(src&0xFF,8);
+            dest=sign_ext(dest&0xFF,8);
+            break;
+        case 16:   
+            result=sign_ext(result&0xFFFF,16);
+            src=sign_ext(src&0xFFFF,16);
+            dest=sign_ext(dest&0xFFFF,16);
+            break; 
+        default:break;
+    }
+    if(sign(src)==sign(dest)){
+        if(sign(src)!=sign(result))
+            cpu.eflags.OF=1;
+        else
+            cpu.eflags.OF=0;
+    }
+    else{
+        cpu.eflags.OF=0;
+    }
+}
 uint32_t alu_add(uint32_t src, uint32_t dest, size_t data_size)
 {
 #ifdef NEMU_REF_ALU
