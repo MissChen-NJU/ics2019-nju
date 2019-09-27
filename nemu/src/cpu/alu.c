@@ -167,11 +167,10 @@ uint64_t alu_mul(uint32_t src, uint32_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_mul(src, dest, data_size);
 #else
-	uint64_t res=0;
-    res=dest*src;
-    set_CFandOF_mul(res,data_size); 
-    uint32_t r=(uint32_t)res;
-    return r&(0xFFFFFFFF>>(32-data_size));
+	uint64_t r1=dest*src;
+    set_CFandOF_mul(r1,data_size); 
+    uint32_t r2=dest*src;
+    return r2&(0xFFFFFFFF>>(32-data_size));
 #endif
 }
 
