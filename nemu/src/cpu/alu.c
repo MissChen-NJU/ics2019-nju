@@ -178,9 +178,9 @@ int64_t alu_imul(int32_t src, int32_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_imul(src, dest, data_size);
 #else
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	assert(0);
-	return 0;
+	int64_t res=dest*src;
+    set_CFandOF_mul(res,data_size); 
+    return res&(0xFFFFFFFFFFFFFFFF>>(64-2*(data_size)));
 #endif
 }
 
