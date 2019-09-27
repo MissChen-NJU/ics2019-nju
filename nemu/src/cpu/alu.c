@@ -273,7 +273,8 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_shl(src, dest, data_size);
 #else
-	uint32_t temp=src;
+	uint32_t temp=0;
+    temp=src;
     uint32_t res=0;
     res=dest;
     while(temp!=0)
