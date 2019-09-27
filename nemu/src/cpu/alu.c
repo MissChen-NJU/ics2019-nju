@@ -168,12 +168,12 @@ uint64_t alu_mul(uint32_t src, uint32_t dest, size_t data_size)
 	return __ref_alu_mul(src, dest, data_size);
 #else
 	uint32_t res=0;
-    res=(uint32_t)(dest*src);
+    res=dest*src;
     set_CFandOF_mul(res,data_size); 
     set_PF(res);
     set_ZF(res,data_size);
     set_SF(res,data_size);
-    return res&(0xFFFFFFFF>>(32-data_size));
+    return res;
 #endif
 }
 
