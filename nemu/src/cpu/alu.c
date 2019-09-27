@@ -273,9 +273,18 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_shl(src, dest, data_size);
 #else
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	assert(0);
-	return 0;
+	uint32_t temp=src;
+    while(temp!=0)
+    {
+        cpu.eflags.CF=sign(dest);
+        dest=dest*2;
+        temp=temp-1;
+    }
+    if(src==1) cpu.eflags.OF=sign(dest);
+    set_PF(dest);
+    set_ZF(dest,data_size);
+    set_SF(dest,data_size);
+    return dest&(0xFFFFFFFF>>(32-data_size));
 #endif
 }
 
