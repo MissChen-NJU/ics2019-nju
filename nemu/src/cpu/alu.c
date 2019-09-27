@@ -21,7 +21,7 @@ void set_CF_sbb(uint32_t dest,uint32_t src,size_t data_size){
     if(cpu.eflags.CF==0) cpu.eflags.CF=(dest<src);
     else if(cpu.eflags.CF==1) cpu.eflags.CF=(dest<=src);
 }
-void set_CFandOF_mul(uint32_t result,size_t data_size){
+void set_CFandOF_mul(uint64_t result,size_t data_size){
     if((result>>data_size)==0){
         cpu.eflags.CF=0;
         cpu.eflags.OF=0;    
