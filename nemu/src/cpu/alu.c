@@ -180,7 +180,7 @@ int64_t alu_imul(int32_t src, int32_t dest, size_t data_size)
 #else
 	int64_t res=dest*src;
     set_CFandOF_mul(res,data_size); 
-    return res&(0xFFFFFFFFFFFFFFFF>>(64-2*(data_size)));
+    return res;//&(0xFFFFFFFFFFFFFFFF>>(64-2*(data_size)));
 #endif
 }
 
