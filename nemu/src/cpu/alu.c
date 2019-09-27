@@ -279,13 +279,11 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
     res=dest;
     while(temp!=0)
     {
-        dest=res;
-        cpu.eflags.CF=sign(dest);
-        res<<1;
+        cpu.eflags.CF=sign(res);
+        res=res*2;
         temp=temp-1;
     }
-    dest=res;
-    if(src==1) cpu.eflags.OF=sign(dest);
+    if(src==1) cpu.eflags.OF=sign(res);
     set_PF(res);
     set_ZF(res,data_size);
     set_SF(res,data_size);
