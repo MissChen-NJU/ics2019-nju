@@ -274,17 +274,21 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
 	return __ref_alu_shl(src, dest, data_size);
 #else
 	uint32_t temp=src;
+    uint32_t res=0;
+    res=dest;
     while(temp!=0)
     {
+        dest=res;
         cpu.eflags.CF=sign(dest);
-        (dest)<<1;
+        res=res*2;
         temp=temp-1;
     }
+    dest=res;
     if(src==1) cpu.eflags.OF=sign(dest);
-    set_PF(dest);
-    set_ZF(dest,data_size);
-    set_SF(dest,data_size);
-    return dest&(0xFFFFFFFF>>(32-data_size));
+    set_PF(res);
+    set_ZF(res,data_size);
+    set_SF(res,data_size);
+    return res&(0xFFFFFFFF>>(32-data_size));
 #endif
 }
 
