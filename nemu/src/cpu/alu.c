@@ -281,7 +281,7 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
     {
         dest=res;
         cpu.eflags.CF=sign(dest);
-        res=res*2;
+        res<<1;
         temp=temp-1;
     }
     dest=res;
