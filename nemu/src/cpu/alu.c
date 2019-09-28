@@ -336,7 +336,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
     {
         cpu.eflags.CF=(sign_ext(dest&(0xFFFFFFFF>>(32-data_size)),data_size))%2;
 
-        dest=alu_div(2,dest,data_size);
+        dest=alu_idiv(2,dest,data_size);
 
         temp=temp-1;
     }    
