@@ -203,9 +203,9 @@ int32_t alu_idiv(int64_t src, int64_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_idiv(src, dest, data_size);
 #else
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	assert(0);
-	return 0;
+	int32_t res=dest/src;
+    if(src==0) abort();
+    return res&(0xFFFFFFFF>>(32-data_size));
 #endif
 }
 
@@ -215,7 +215,7 @@ uint32_t alu_mod(uint64_t src, uint64_t dest)
 	return __ref_alu_mod(src, dest);
 #else
 	uint32_t res=dest/src;
-    if(src==0){ abort();}
+    if(src==0) abort();
     uint32_t remain=dest-res*src;
     return remain;
 #endif
@@ -226,9 +226,10 @@ int32_t alu_imod(int64_t src, int64_t dest)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_imod(src, dest);
 #else
-	printf("\e[0;31mPlease implement me at alu.c\e[0m\n");
-	assert(0);
-	return 0;
+	int32_t res=dest/src;
+    if(src==0) abort();
+    int32_t remain=dest-res*src;
+    return remain;
 #endif
 }
 
