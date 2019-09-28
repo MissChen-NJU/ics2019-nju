@@ -292,7 +292,7 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
     res=dest;
     while(temp!=0)
     {
-        res=alu_mul(res,2,data_size);
+        res=alu_add(res,res,data_size);
         temp=temp-1;
     }    
     set_PF(res);
