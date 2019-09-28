@@ -315,7 +315,7 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size)
     while(temp!=0)
     {
         cpu.eflags.CF=(sign_ext(res&(0xFFFFFFFF>>(32-data_size)),data_size))%2;
-        res=alu_idiv(2,res,data_size);
+        res=alu_div(2,res,data_size);
         temp=temp-1;
     }    
     set_PF(res);
@@ -338,7 +338,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
     while(temp!=0)
     {
         cpu.eflags.CF=(sign_ext(res&(0xFFFFFFFF>>(32-data_size)),data_size))%2;
-        res=alu_div(2,res,data_size);
+        res=alu_idiv(2,res,data_size);
         temp=temp-1;
     }    
     set_PF(res);
