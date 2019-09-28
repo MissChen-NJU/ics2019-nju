@@ -302,11 +302,10 @@ uint32_t alu_shl(uint32_t src, uint32_t dest, size_t data_size)
     return res&(0xFFFFFFFF>>(32-data_size));
 #endif
 }
-
-uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size)
+uint32_t alu_sal(uint32_t src, uint32_t dest, size_t data_size)
 {
 #ifdef NEMU_REF_ALU
-	return __ref_alu_shr(src, dest, data_size);
+	return __ref_alu_sal(src, dest, data_size);
 #else
 	uint32_t temp=0;
     temp=src;
@@ -314,8 +313,7 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size)
     res=dest;
     while(temp!=0)
     {
-        cpu.eflags.CF=(sign_ext(res&(0xFFFFFFFF>>(32-data_size)),data_size))%2;
-        res=res>>1;
+        res=alu_add(res,res,data_size);
         temp=temp-1;
     }    
     set_PF(res);
@@ -325,7 +323,6 @@ uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size)
     return res&(0xFFFFFFFF>>(32-data_size));
 #endif
 }
-
 uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 {
 #ifdef NEMU_REF_ALU
@@ -348,11 +345,10 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
     return res&(0xFFFFFFFF>>(32-data_size));
 #endif
 }
-
-uint32_t alu_sal(uint32_t src, uint32_t dest, size_t data_size)
+uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size)
 {
 #ifdef NEMU_REF_ALU
-	return __ref_alu_sal(src, dest, data_size);
+	return __ref_alu_shr(src, dest, data_size);
 #else
 	uint32_t temp=0;
     temp=src;
@@ -360,7 +356,8 @@ uint32_t alu_sal(uint32_t src, uint32_t dest, size_t data_size)
     res=dest;
     while(temp!=0)
     {
-        res=alu_add(res,res,data_size);
+        cpu.eflags.CF=(sign_ext(res&(0xFFFFFFFF>>(32-data_size)),data_size))%2;
+        res=alu_idiv(2,res,data_size);
         temp=temp-1;
     }    
     set_PF(res);
@@ -370,3 +367,4 @@ uint32_t alu_sal(uint32_t src, uint32_t dest, size_t data_size)
     return res&(0xFFFFFFFF>>(32-data_size));
 #endif
 }
+
