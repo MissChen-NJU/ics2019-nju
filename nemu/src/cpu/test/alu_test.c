@@ -443,7 +443,7 @@ void alu_test_sar() {
 	srand(time(0));
 	for(i = 0 ; i < 1000000 ; i++) {
 		for(j = 0 ; j < nb ; j++) {
-			a = rand();
+			a = 1;
 			b = inputb[j];
 			{internel_alu_test_CPSZ(alu_sar,  8, "sarb %%cl, %%al;")}
 			{internel_alu_test_CPSZ(alu_sar, 16, "sarw %%cl, %%ax;")}
