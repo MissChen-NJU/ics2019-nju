@@ -337,6 +337,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
     res=dest;
     while(temp!=0)
     {
+        cpu.eflags.CF=(res&0xFFFFFFF1);
         res=alu_div(2,res,data_size);
         temp=temp-1;
     }    
