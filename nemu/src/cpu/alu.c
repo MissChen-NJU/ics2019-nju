@@ -193,7 +193,7 @@ uint32_t alu_div(uint64_t src, uint64_t dest, size_t data_size)
 #else
 	uint32_t res=dest/src;
     if(src==0) abort();
-    return res&(0xFFFFFFFF>>(32-data_size));
+    return res;//&(0xFFFFFFFF>>(32-data_size));
 #endif
 }
 
@@ -205,7 +205,7 @@ int32_t alu_idiv(int64_t src, int64_t dest, size_t data_size)
 #else
 	int32_t res=dest/src;
     if(src==0) abort();
-    return res&(0xFFFFFFFF>>(32-data_size));
+    return res;//&(0xFFFFFFFF>>(32-data_size));
 #endif
 }
 
@@ -337,7 +337,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
     res=dest;
     while(temp!=0)
     {
-        cpu.eflags.CF=(res&0xFFFFFFF1);
+        cpu.eflags.CF=(sign_ext(res&(0xFFFFFFFF>>(32-data_size)),data_size))%2;
         res=alu_div(2,res,data_size);
         temp=temp-1;
     }    
