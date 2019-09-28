@@ -330,14 +330,14 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_sar(src, dest, data_size);
 #else
-    uint32_t sign;
-    sign=(uint32_t)(dest>>(data_size-1));
+
+
 	uint32_t temp=src;
     while(temp!=0)
     {
         cpu.eflags.CF=(sign_ext(dest&(0xFFFFFFFF>>(32-data_size)),data_size))%2;
         dest=dest/2;
-        if(sign==1) dest=dest-1;
+
         temp=temp-1;
     }    
     set_PF(dest);
