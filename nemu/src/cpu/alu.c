@@ -330,7 +330,6 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_sar(src, dest, data_size);
 #else
-    dest=dest&(0xFFFFFFFF>>(32-data_size));
 	uint32_t temp=0;
     temp=src;
     uint32_t res=0;
