@@ -335,13 +335,13 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
     while(temp!=0)
     {
         cpu.eflags.CF=(sign_ext(res&(0xFFFFFFFF>>(32-data_size)),data_size))%2;
-        res=res>>1;
+        res=res>>!;
         temp=temp-1;
     }    
     set_PF(res);
     set_ZF(res,data_size);
     set_SF(res,data_size);
-    return res&(0xFFFFFFFF>>(32-data_size));
+    return (uint32_t)res&(0xFFFFFFFF>>(32-data_size));
 #endif
 }
 uint32_t alu_shr(uint32_t src, uint32_t dest, size_t data_size)
