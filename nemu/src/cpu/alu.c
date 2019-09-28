@@ -214,8 +214,9 @@ uint32_t alu_mod(uint64_t src, uint64_t dest)
 	return __ref_alu_mod(src, dest);
 #else
 	uint32_t res=dest/src;
+    if(src==0){ abort();}
     uint32_t remain=dest-res*src;
-    return remain&(0xFFFFFFFF>>(32-data_size));
+    return remain;
 #endif
 }
 
