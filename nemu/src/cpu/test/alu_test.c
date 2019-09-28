@@ -441,7 +441,7 @@ void alu_test_sar() {
 	}
 
 	srand(time(0));
-	for(i = 0 ; i < 1000000 ; i++) {
+	for(i = 0 ; i < 10 ; i++) {
 		for(j = 0 ; j < nb ; j++) {
 			a = 10000;
 			b = inputb[j];
