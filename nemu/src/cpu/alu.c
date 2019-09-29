@@ -332,14 +332,18 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 #else
     uint32_t res=0;
 	uint32_t temp=src;
-    int32_t mid=sign_ext(dest&(0xFFFFFFFF>>(32-data_size)),data_size);
+    int32_t mid=sign_ext(dest&0xFFFFFFFF>>(32-data_size),data_size);
+    uint32_t front=(data_size==32)?0:dest&(0xFFFFFFFF<<data_size)
     while(temp!=0){
-    cpu.eflags.CF=mid%2;
-    mid=mid>>1;
-    temp=temp-1;
+        cpu.eflags.CF=((mid&(0x01))==(0x01));
+        mid=mid>>1;
+        temp=temp-1;
     }
     mid=mid&(0xFFFFFFFF>>(32-data_size));
-    res=res|mid;
+    res=front|mid;
+    set_PF(res);
+    set_ZF(res,data_size);
+    set_SF(res,data_size);
     return res&(0xFFFFFFFF>>(32-data_size));
 #endif
 }
