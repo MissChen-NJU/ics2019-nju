@@ -479,7 +479,7 @@ void alu_test_imul() {
 
 	srand(time(0));
 	for(i = 0 ; i < 1000000 ; i++) {
-		a = rand();
+		a = 127;
 		b = rand();
 		res = alu_imul(sign_ext(b, 8), sign_ext(a, 8), 8);
 
