@@ -445,7 +445,8 @@ void alu_test_sar() {
 		for(j = 0 ; j < nb ; j++) {
 			a = rand();
 			b = inputb[j];
-			
+			{internel_alu_test_CPSZ(alu_sar,  8, "sarb %%cl, %%al;")}
+			{internel_alu_test_CPSZ(alu_sar, 16, "sarw %%cl, %%ax;")}
 			{internel_alu_test_CPSZ(alu_sar, 32, "sarl %%cl, %%eax;")}
 		}
 	}
