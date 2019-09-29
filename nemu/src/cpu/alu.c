@@ -340,7 +340,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
         mid=mid>>1;
         temp=temp-1;
     }    
-    int32_t res=(int32_t)mid+(int32_t)res;
+    res=(int32_t)mid+(int32_t)res;
     set_PF(res);
     set_ZF(res,data_size);
     set_SF(res,data_size);
