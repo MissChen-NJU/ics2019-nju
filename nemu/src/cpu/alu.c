@@ -330,24 +330,16 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 #ifdef NEMU_REF_ALU
 	return __ref_alu_sar(src, dest, data_size);
 #else
-    int32_t res=dest&(0xFFFFFFFF<<data_size);
+    uint32_t res=0;
 	uint32_t temp=src;
-    int32_t mid=dest&(0xFFFFFFFF>>(32-data_size));
-
-    switch(data_size){
-    case 8: mid=(int8_t)mid;break;
-    case 16: mid=(int16_t)mid;break;
-    case 32: mid=(int32_t)mid;break;}
-    while(temp!=0)
-    {
-        cpu.eflags.CF=mid%2;
-        mid=mid>>1;
-        temp=temp-1;
-    }    
-    res=(int32_t)mid+(int32_t)res;
-    set_PF(res);
-    set_ZF(res,data_size);
-    set_SF(res,data_size);
+    int32_t mid=sign_ext(dest&(0xFFFFFFFF>>(32-data_size)),data_size);
+    while(temp!=0){
+    cpu.eflags.CF=mid%2;
+    mid=mid>>1;
+    temp=temp-1;
+    }
+    mid=mid&(0xFFFFFFFF>>(32-data_size));
+    res=res|mid;
     return res&(0xFFFFFFFF>>(32-data_size));
 #endif
 }
