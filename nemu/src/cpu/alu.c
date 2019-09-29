@@ -333,9 +333,8 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
     uint32_t res=0;
 	uint32_t temp=src;
     int32_t mid=sign_ext(dest&0xFFFFFFFF>>(32-data_size),data_size);
-    
     while(temp!=0){
-        cpu.eflags.CF=((mid&(0x01))==(0x01));
+        cpu.eflags.CF=mid%2;
         mid=mid>>1;
         temp=temp-1;
     }
