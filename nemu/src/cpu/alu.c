@@ -332,11 +332,8 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 #else
     int32_t res=dest&(0xFFFFFFFF<<data_size);
 	uint32_t temp=src;
-    switch(data_size){
-    case 8:int8_t mid=dest&(0xFFFFFFFF<<(32-datz_size));break;
-    case 16:int16_t mid=dest&(0xFFFFFFFF<<(32-datz_size));break;
-    case 32:int32_t mid=dest&(0xFFFFFFFF<<(32-datz_size));break;
-    }
+    uint32_t mid=dest&(0xFFFFFFFF>>(32-data_size));
+    mid=sign_ext(mid,data_size);
     while(temp!=0)
     {
         cpu.eflags.CF=mid%2;
