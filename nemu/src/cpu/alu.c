@@ -332,7 +332,7 @@ uint32_t alu_sar(uint32_t src, uint32_t dest, size_t data_size)
 #else
     uint32_t res=0;
 	uint32_t temp=src;
-    int32_t mid=sign_ext(dest&0xFFFFFFFF>>(32-data_size),data_size);
+    int32_t mid=sign_ext(dest&0xFFFFFFFF>>(32-data_size),data_size);//expand with sign; 
     while(temp!=0){
         cpu.eflags.CF=mid%2;
         mid=mid>>1;
