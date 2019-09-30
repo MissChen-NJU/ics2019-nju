@@ -139,7 +139,7 @@ uint32_t internal_float_add(uint32_t b, uint32_t a)
 		fb.val = a;
 	}//make fb have a bigger Exponent;
 
-    //is fa/fb an unnormalized number; 
+    //is fa/fb an unnormalized number?; 
 	uint32_t sig_a, sig_b, sig_res;
 	sig_a = fa.fraction;
 	if (fa.exponent != 0)
@@ -148,7 +148,7 @@ uint32_t internal_float_add(uint32_t b, uint32_t a)
 	if (fb.exponent != 0)
 		sig_b |= 0x800000; // the hidden 1
 
-	// alignment shift for fa
+	// alignment shift for fa(with the smaller exp)
 	uint32_t shift = 0;
 
 	/* TODO: shift = ? */
