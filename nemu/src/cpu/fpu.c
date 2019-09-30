@@ -122,7 +122,7 @@ uint32_t internal_float_add(uint32_t b, uint32_t a)
 
 	FLOAT f, fa, fb;
 	fa.val = a;
-	fb.val = b;
+	fb.val = b;//val is uint32_t type;
 	// infity, NaN
 	if (fa.exponent == 0xff)
 	{
