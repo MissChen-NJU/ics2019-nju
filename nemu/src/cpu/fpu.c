@@ -137,7 +137,7 @@ uint32_t internal_float_add(uint32_t b, uint32_t a)
 	{
 		fa.val = b;
 		fb.val = a;
-	}//make fb have a bigger exponent;
+	}//make fb have a bigger Exponent;
 
 	uint32_t sig_a, sig_b, sig_res;
 	sig_a = fa.fraction;
