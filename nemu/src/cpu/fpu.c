@@ -179,7 +179,7 @@ uint32_t internal_float_add(uint32_t b, uint32_t a)
 
 	sig_res = sig_a + sig_b;
 
-	if (sign(sig_res))
+	if (sign(sig_res))//can use sign()?;
 	{
 		f.sign = 1;
 		sig_res *= -1;
