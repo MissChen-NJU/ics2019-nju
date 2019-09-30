@@ -104,7 +104,7 @@ CORNER_CASE_RULE corner_add[] = {
 uint32_t internal_float_add(uint32_t b, uint32_t a)
 {
 
-	// corner cases
+	// corner/boundary cases
 	int i = 0;
 	for (; i < sizeof(corner_add) / sizeof(CORNER_CASE_RULE); i++)
 	{
