@@ -137,7 +137,7 @@ void fpu_test_mul()
 	{
 		for (j = 0; j < sizeof(input) / sizeof(float); j++)
 		{
-			printf(" == %d ==\n", count++);
+			printf(" %d== %d ==%d\n", i,count++,j);
 			a.fval = input[i];
 			b.fval = input[j];
 			res.fval = a.fval * b.fval;
