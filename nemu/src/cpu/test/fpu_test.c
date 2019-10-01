@@ -14,7 +14,6 @@ void fpu_test_add()
 	FLOAT a, b, res, res_fpu;
 	int i, j;
 	// int count = 0;
-    printf("%f %f %f %f\n",p_inf.fval, n_inf.fval, big_1.fval, big_2.fval);
 	for (i = 0; i < sizeof(input) / sizeof(float); i++)
 	{
 		for (j = 0; j < sizeof(input) / sizeof(float); j++)
