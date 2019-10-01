@@ -12,7 +12,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 	// normalization
 	bool overflow = false; // true if the result is INFINITY or 0 during normalize
     uint32_t ssticky=0;
-    ssticky=sig&0x01;
+    ssticky=sig_grs&0x01;
 
 	if ((sig_grs >> (23 + 3)) > 1 || exp < 0)
 	{
@@ -20,7 +20,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		while ((((sig_grs >> (23 + 3)) > 1) && exp < 0xff) || (sig_grs > 0x04 && exp < 0))
 		{
 			/* TODO: shift right, pay attention to sticky bit*/
-			sig_grs>>1;
+			sig_grs=sig_grs>>1;
             exp++;
             sig_grs|=ssticky;
 		}
@@ -43,7 +43,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 			// we have a denormal here, the exponent is 0, but means 2^-126,
 			// as a result, the significand should shift right once more
 			/* TODO: shift right, pay attention to sticky bit*/
-			sig_grs>>1;
+			sig_grs=sig_grs>>1;
             sig_grs|=ssticky;
 		}
 		if (exp < 0)
@@ -66,14 +66,14 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		while (((sig_grs >> (23 + 3)) == 0) && exp > 0)
 		{
 			/* TODO: shift left */
-			sig_grs<<1;
+			sig_grs=sig_grs<<1;
             exp--;
 		}
 		if (exp == 0)
 		{
 			// denormal
 			/* TODO: shift right, pay attention to sticky bit*/
-			sig_grs>>1;
+			sig_grs=sig_grs>>1;
             sig_grs|=ssticky;
 		}
 	}
