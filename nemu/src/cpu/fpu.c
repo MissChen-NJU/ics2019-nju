@@ -29,6 +29,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		{
 			/* TODO: assign the number to infinity */
             overflow = true;
+            exp=0xff;
 			sig_grs=0x00;
 		}
 		if (exp == 0)
