@@ -29,14 +29,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		{
 			/* TODO: assign the number to infinity */
             overflow = true;
-			if(sign==0)
-            {
-                return p_inf.val;
-            }
-            else
-            {
-                return n_inf.val;
-            }
+			sig_grs=0x00;
 		}
 		if (exp == 0)
 		{
@@ -50,14 +43,8 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		{
 			/* TODO: assign the number to zero */
 			overflow = true;
-            if(sign==0)
-            {
-                return p_zero.val;
-            }
-            else
-            {
-                return n_zero.val;
-            }
+            exp=0x00;
+            sig_grs=0x00;
 		}
 	}
 	else if (((sig_grs >> (23 + 3)) == 0) && exp > 0)
@@ -115,15 +102,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
         }
         if (exp >= 0xff)
 		{
-            overflow = true;
-			if(sign==0)
-            {
-                return p_inf.val;
-            }
-            else
-            {
-                return n_inf.val;
-            }
+		    sig_grs=0x00;	
 		}
 	}
 
