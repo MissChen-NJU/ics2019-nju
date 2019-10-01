@@ -308,7 +308,10 @@ uint32_t internal_float_mul(uint32_t b, uint32_t a)
 	uint32_t exp_res = 0;
 
 	/* TODO: exp_res = ? leave space for GRS bits. */
-	exp_res=fa.exponent+fb.exponent-127-23;
+	if(((sig_a&0x800000)==0)&&((sig_b)&0x800000==0)) exp_res=fa.exponent+fb.exponent-127-46;
+    else if((((sig_a&0x800000)==0)&&((sig_b)&0x800000!=0))||(((sig_a&0x800000)!=0)&&((sig_b)&0x800000==0))) exp_res=fa.exponent+fb.exponent-127-23;
+    else if(((sig_a&0x800000)!=0)&&((sig_b)&0x800000!=0)) exp_res=fa.exponent+fb.exponent-127;
+
     sig_res=sig_res<<3;
 
 	return internal_normalize(f.sign, exp_res, sig_res);
