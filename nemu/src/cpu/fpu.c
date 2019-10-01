@@ -91,7 +91,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
             else if((sig_grs&0x08)==0x08)
             {
                 sig_grs=sig_grs+0x08;
-                sig_grs=sig_grs&0xffffffffffffffff8;
+                sig_grs=sig_grs&0xfffffffffffffff8;
             }
         }
         sig_grs=sig_grs>>3;
