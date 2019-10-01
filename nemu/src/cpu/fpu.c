@@ -12,7 +12,7 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 	// normalization
 	bool overflow = false; // true if the result is INFINITY or 0 during normalize
     uint32_t ssticky=0;
-    ssticky=sig_grs&0x01;
+    ssticky=(uint32_t)sig_grs&0x01;
 
 	if ((sig_grs >> (23 + 3)) > 1 || exp < 0)
 	{
@@ -75,23 +75,23 @@ inline uint32_t internal_normalize(uint32_t sign, int32_t exp, uint64_t sig_grs)
 		/* TODO: round up and remove the GRS bits */
 		if((sig_grs&0x07)<=0x03)
         {
-            sig_grs=sig_grs&0xfffffff8;
+            sig_grs=sig_grs&0xfffffffffffffff8;
         }
         else if((sig_grs&0x07)>=0x05)
         {
-            sig_grs=sig_grs+0x00000008;
-            sig_grs=sig_grs&0xfffffff8;
+            sig_grs=sig_grs+0x08;
+            sig_grs=sig_grs&0xfffffffffffffff8;
         }
         else if((sig_grs&0x07)==0x04)
         {
             if((sig_grs&0x08)==0x00)
             {
-                sig_grs=sig_grs&0xfffffff0;
+                sig_grs=sig_grs&0xfffffffffffffff0;
             }
             else if((sig_grs&0x08)==0x08)
             {
-                sig_grs=sig_grs+0x00000008;
-                sig_grs=sig_grs&0xfffffff8;
+                sig_grs=sig_grs+0x08;
+                sig_grs=sig_grs&0xffffffffffffffff8;
             }
         }
         sig_grs=sig_grs>>3;
