@@ -536,7 +536,7 @@ void alu_test_imul() {
 	
 			temp_a = res_asm_a;
 			temp_d = res_asm_d;
-			assert((int32_t) res == (int32_t) ((temp_a & 0xffffffff) | ((temp_d & 0xffffffff) << 32)));
+			assert((int64_t) res == (int64_t) ((temp_a & 0xffffffff) | ((temp_d & 0xffffffff) << 32)));
 		}
 	}
 
@@ -552,7 +552,7 @@ void alu_test_imul() {
 	
 		temp_a = res_asm_a;
 		temp_d = res_asm_d;
-		assert((int32_t) res == (int32_t) ((temp_a & 0xffffffff) | ((temp_d & 0xffffffff) << 32)));
+		assert((int64_t) res == (int64_t) ((temp_a & 0xffffffff) | ((temp_d & 0xffffffff) << 32)));
 	}
 
 	printf("alu_test_imul() \e[0;32mpass\e[0m\n");
