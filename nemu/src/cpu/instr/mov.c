@@ -19,6 +19,7 @@ make_instr_impl_2op(mov, a, o, b)
 make_instr_impl_2op(mov, a, o, v)
 make_instr_impl_2op(mov, o, a, b)
 make_instr_impl_2op(mov, o, a, v)
+
 make_instr_func(mov_zrm82r_v)
 {
         int len = 1;
