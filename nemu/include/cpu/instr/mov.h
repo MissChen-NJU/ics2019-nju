@@ -38,7 +38,4 @@ make_instr_func(cmovp_rm2r_v);
 make_instr_func(cmovs_rm2r_v);
 make_instr_func(cmove_rm2r_v);
 
-int mov_i2r_b(uint32_t eip,uint8_t opcode);
-int mov_i2rm_v(uint32_t eip,uint8_t opcode);
-
 #endif
