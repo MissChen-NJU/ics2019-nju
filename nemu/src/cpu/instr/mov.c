@@ -12,6 +12,7 @@ make_instr_impl_2op(mov, r, rm, v)
 make_instr_impl_2op(mov, rm, r, b)
 make_instr_impl_2op(mov, rm, r, v)
 make_instr_impl_2op(mov, i, rm, b)
+
 make_instr_impl_2op(mov, i, rm, v)
 {
         OPERAND rm, imm;
@@ -97,8 +98,6 @@ make_instr_func(mov_srm162r_l)
         print_asm_2("mov", "", len, &rm, &r);
         return len;
 }
-
-make_instr_func(mov_i2rm_v)
 
 
 
