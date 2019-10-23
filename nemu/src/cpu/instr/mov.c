@@ -13,6 +13,23 @@ make_instr_impl_2op(mov, rm, r, b)
 make_instr_impl_2op(mov, rm, r, v)
 make_instr_impl_2op(mov, i, rm, b)
 make_instr_impl_2op(mov, i, rm, v)
+{
+        OPERAND rm, imm;
+        rm.data_size = data_size;
+        int len = 1;
+        len += modrm_rm(eip + 1, &rm);
+
+        imm.type = OPR_IMM;
+        imm.addr = eip + len;
+        imm.data_size = data_size;
+
+        operand_read(&imm);
+        rm.val = imm.val;
+        operand_write(&rm);
+
+        return len + data_size / 8;
+}
+
 make_instr_impl_2op(mov, i, r, b)
 make_instr_impl_2op(mov, i, r, v)
 make_instr_impl_2op(mov, a, o, b)
@@ -82,21 +99,6 @@ make_instr_func(mov_srm162r_l)
 }
 
 make_instr_func(mov_i2rm_v)
-{
-        OPERAND rm, imm;
-        rm.data_size = data_size;
-        int len = 1;
-        len += modrm_rm(eip + 1, &rm);
 
-        imm.type = OPR_IMM;
-        imm.addr = eip + len;
-        imm.data_size = data_size;
-
-        operand_read(&imm);
-        rm.val = imm.val;
-        operand_write(&rm);
-
-        return len + data_size / 8;
-}
 
 
