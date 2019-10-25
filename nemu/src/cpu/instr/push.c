@@ -2,5 +2,4 @@
 
 make_instr_func(push)
 {
-    return 0;
 }
