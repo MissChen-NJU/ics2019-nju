@@ -1,6 +1,6 @@
 #include "cpu/instr.h"
 
-static void instr_excute_1op()
+static void instr_execute_1op()
 {
     operand_read(&opr_src);
     cpu.esp = cpu.esp - data_size / 8; //top point<-top point-2;
