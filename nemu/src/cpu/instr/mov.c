@@ -12,6 +12,7 @@ make_instr_impl_2op(mov, r, rm, v)
 make_instr_impl_2op(mov, rm, r, b)
 make_instr_impl_2op(mov, rm, r, v)
 make_instr_impl_2op(mov, i, rm, b)
+
 make_instr_impl_2op(mov, i, rm, v)
 {
         OPERAND rm, imm;
@@ -29,6 +30,7 @@ make_instr_impl_2op(mov, i, rm, v)
 
         return len + data_size / 8;  
 }
+
 make_instr_impl_2op(mov, i, r, b)
 make_instr_impl_2op(mov, i, r, v)
 make_instr_impl_2op(mov, a, o, b)
