@@ -11,7 +11,6 @@
 #include <stdio.h>
 #include <cpu-ref/instr_ref.h>
 
-
 extern uint8_t data_size;
 
 #include "cpu/instr/mov.h"
