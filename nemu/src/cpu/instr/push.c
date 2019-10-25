@@ -4,7 +4,7 @@ static void instr_excute_1op()
 {
     operand_read(&opr_src);
     cpu.esp = cpu.esp - data_size / 8; //top point<-top point-2;
-    opr_dest.type = opr_MEM;
+    opr_dest.type = OPR_MEM;
     opr_dest.sreg = SREG_DS; //data section;
     opr_dest.addr = cpu.esp;
     opr_dest.val = opr_src.val;
@@ -27,10 +27,10 @@ make_instr_impl_1op(push, i, v)
     print_asm_1("push", "b", len, &opr_src);
     cpu.esp = cpu.esp - data_size / 8;
 
-    oprand_read(&opr_src);
+    operand_read(&opr_src);
     opr_dest.val = sign_ext(opr_src.val, 8);
     opr_dest.data_size = data_size;
-    opr_dest.type = opr_MEM;
+    opr_dest.type = OPR_MEM;
     opr_dest.sreg = SREG_DS; //data section;
     opr_dest.addr = cpu.esp;
     opr_dest.val = opr_src.val;
