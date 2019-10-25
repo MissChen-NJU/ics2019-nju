@@ -1,17 +1,40 @@
 #include "cpu/instr.h"
 
-make_instr_func(push)
+static void instr_excute_1op()
 {
-    OPERAND reg;
-    reg.type=OPR_REG;
-    reg.addr=opcode&0x07;
-    reg.data_size=data_size;
+    operand_read(&opr_src);
+    cpu.esp=cpu.esp-data_size/8;//top point<-top point-2;
+    opr_dest.type=opr_MEM;
+    opr_dest.sreg=SREG_DS;//data section;
+    opr_dest.addr=cpu.esp;
+    opr_dest.val=opr_src.val;
+    operand_write(&opr_dest);
+}
 
+make_instr_impl_1op(push,r,v);
+make_instr_impl_1op(push,rm,v);
+make_instr_impl_1op(push,i,v)
+
+make_instr_func(push_i_b)
+{
     int len=1;
+    len++;
+    
+    opr_src.data_size=8;
+    opr_src.type=OPR_IMM;
+    opr_src.sreg=SREG_CS;
+    opr_src.addr=eip+1;
+    print_asm_1("push","b",len,&opr_src);
+    cpu.esp=cpu.esp-data_size/8;
 
-    operand_read(&reg);
-    reg.val=reg.val-2;
-    operand_write(&reg);
+    oprand_read(&opr_src);
+    opr_dest.val=sign_ext(opr_src.val,8);
+    opr_dest.data_size=data_size;
+    opr_dest.type=opr_MEM;
+    opr_dest.sreg=SREG_DS;//data section;
+    opr_dest.addr=cpu.esp;
+    opr_dest.val=opr_src.val;
+    operand_write(&opr_dest);
 
     return len;
 }
