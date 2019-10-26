@@ -69,15 +69,15 @@ instr_func opcode_entry[256] = {
 
 /* 0x80 */
 instr_func group_1_b_entry[8] =
-    {inv, inv, inv, inv, inv, inv, inv, inv};
+    {inv, inv, inv, inv, inv, sub_i2rm_b, inv, inv};
 
 /* 0x81 */
 instr_func group_1_v_entry[8] =
-    {inv, inv, inv, inv, inv, inv, inv, inv};
+    {inv, inv, inv, inv, inv, sub_i2rm_v, inv, inv};
 
 /* 0x83 */
 instr_func group_1_bv_entry[8] =
-    {add_i2rm_bv, or_i2rm_bv, adc_i2rm_bv, sbb_i2rm_bv, and_i2rm_bv, sub_i2rm_bv, xor_i2rm_bv, cmp_i2rm_bv};
+    {inv, inv, inv, inv, inv,sub_i2rm_bv, inv, inv};
 
 /* 0xc0 */
 instr_func group_2_b_entry[8] =
