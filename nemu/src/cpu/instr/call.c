@@ -10,7 +10,7 @@ make_instr_func(call_naer)
     operand_read(&rel);
     print_asm_1("call","",1+data_size/8,&rel);
     cpu.esp=cpu.esp-data_size/8;
-    mem.data_size=data_szie;
+    mem.data_size=data_size;
     mem.type=OPR_MEM;
     mem.sreg=SREG_DS;
     mem.addr=cpu.esp;
