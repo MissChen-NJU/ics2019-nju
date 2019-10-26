@@ -9,7 +9,6 @@ make_instr_func(mov_i2rm_b);
 make_instr_func(mov_i2rm_v);
 make_instr_func(mov_i2r_b);
 make_instr_func(mov_i2r_v);
-int mov_i2rm_v(uint32_t eip,uint8_t opcode);
 make_instr_func(mov_o2a_b);
 make_instr_func(mov_o2a_v);
 make_instr_func(mov_a2o_b);
