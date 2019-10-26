@@ -1,6 +1,6 @@
 #include "cpu/instr.h"
 
-make_instr_func(call_naer)
+make_instr_func(call_near)
 {
     OPERAND rel,mem;
     rel.data_size=data_size;
