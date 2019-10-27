@@ -10,9 +10,5 @@ make_instr_func(cmp_i2a_v);
 make_instr_func(cmp_i2rm_b);
 make_instr_func(cmp_i2rm_v);
 make_instr_func(cmp_i2rm_bv);
-make_instr_func(cmps_v);
-make_instr_func(cmps_b);
-
-
 
 #endif 
