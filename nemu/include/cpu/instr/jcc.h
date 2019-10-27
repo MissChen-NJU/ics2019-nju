@@ -18,21 +18,21 @@ make_instr_func(jge_short_);
 make_instr_func(jle_short_);
 make_instr_func(jg_short_);
 
-make_instr_func(jo_near_);
-make_instr_func(jno_near_);
-make_instr_func(jb_near_);
-make_instr_func(jae_near_);
-make_instr_func(je_near_);
-make_instr_func(jne_near_);
-make_instr_func(jna_near_);
-make_instr_func(ja_near_);
-make_instr_func(js_near_);
-make_instr_func(jns_near_);
-make_instr_func(jp_near_);
-make_instr_func(jnp_near_);
-make_instr_func(jl_near_);
-make_instr_func(jge_near_);
-make_instr_func(jle_near_);
-make_instr_func(jg_near_);
+make_instr_func(jo_near);
+make_instr_func(jno_near);
+make_instr_func(jb_near);
+make_instr_func(jae_near);
+make_instr_func(je_near);
+make_instr_func(jne_near);
+make_instr_func(jna_near);
+make_instr_func(ja_near);
+make_instr_func(js_near);
+make_instr_func(jns_near);
+make_instr_func(jp_near);
+make_instr_func(jnp_near);
+make_instr_func(jl_near);
+make_instr_func(jge_near);
+make_instr_func(jle_near);
+make_instr_func(jg_near);
 
 #endif
