@@ -18,8 +18,8 @@ void print_asm_3(char *instr, char *suffix, uint8_t len, OPERAND *opr_1, OPERAND
 	{                                                                                                                           \
 		int len = 1;                                                                                                            \
 		concat(decode_data_size_, suffix)                                                                                       \
-		concat3(decode_operand, _, src_type)                                                                                \
-		print_asm_1(#inst_name, opr_dest.data_size == 8 ? "b" : (opr_dest.data_size == 16 ? "w" : "l"), len, &opr_src); \
+			concat3(decode_operand, _, src_type)                                                                                \
+				print_asm_1(#inst_name, opr_dest.data_size == 8 ? "b" : (opr_dest.data_size == 16 ? "w" : "l"), len, &opr_src); \
 		instr_execute_1op();                                                                                                    \
 		return len;                                                                                                             \
 	}
@@ -31,8 +31,8 @@ void print_asm_3(char *instr, char *suffix, uint8_t len, OPERAND *opr_1, OPERAND
 	{                                                           \
 		int len = 1;                                            \
 		concat(decode_data_size_, suffix)                       \
-		concat3(decode_operand, _, src_type)                \
-		print_asm_1(#inst_name, #cc, len, &opr_src);    \
+			concat3(decode_operand, _, src_type)                \
+				print_asm_1(#inst_name, #cc, len, &opr_src);    \
 		if (concat(condition_, cc))                             \
 			instr_execute_1op_cc_pass();                        \
 		else                                                    \
@@ -46,8 +46,8 @@ void print_asm_3(char *instr, char *suffix, uint8_t len, OPERAND *opr_1, OPERAND
 	{                                                                                                                                      \
 		int len = 1;                                                                                                                       \
 		concat(decode_data_size_, suffix)                                                                                                  \
-		concat3(decode_operand, _, concat3(src_type, 2, dest_type))                                                                    \
-		print_asm_2(#inst_name, opr_dest.data_size == 8 ? "b" : (opr_dest.data_size == 16 ? "w" : "l"), len, &opr_src, &opr_dest); \
+			concat3(decode_operand, _, concat3(src_type, 2, dest_type))                                                                    \
+				print_asm_2(#inst_name, opr_dest.data_size == 8 ? "b" : (opr_dest.data_size == 16 ? "w" : "l"), len, &opr_src, &opr_dest); \
 		instr_execute_2op();                                                                                                               \
 		return len;                                                                                                                        \
 	}
@@ -58,8 +58,8 @@ void print_asm_3(char *instr, char *suffix, uint8_t len, OPERAND *opr_1, OPERAND
 	{                                                                                     \
 		int len = 1;                                                                      \
 		concat(decode_data_size_, suffix)                                                 \
-		concat3(decode_operand, _, concat3(src_type, 2, dest_type))                   \
-		print_asm_2(#inst_name, #cc, len, &opr_src, &opr_dest);                   \
+			concat3(decode_operand, _, concat3(src_type, 2, dest_type))                   \
+				print_asm_2(#inst_name, #cc, len, &opr_src, &opr_dest);                   \
 		if (concat(condition_, cc))                                                       \
 			instr_execute_2op_cc_pass();                                                  \
 		else                                                                              \
@@ -167,55 +167,55 @@ void print_asm_3(char *instr, char *suffix, uint8_t len, OPERAND *opr_1, OPERAND
 static inline bool inv_cc();
 
 #define condition_e \
-	inv_cc()
+	cpu.eflags.ZF==1;
 
 #define condition_a \
-	inv_cc()
+	cpu.eflags.CF==0||cpu.eflags.ZF==0;
 
 #define condition_ae \
-	inv_cc()
+	cpu.eflags.CF==0||cpu.eflags.ZF==1;
 
 #define condition_b \
-	inv_cc()
+	cpu.eflags.CF==1||cpu.eflags.ZF==0;
 
 #define condition_be \
-	inv_cc()
+	cpu.eflags.CF==1||cpu.eflags.ZF==1;
 
 #define condition_o \
-	inv_cc()
+	cpu.eflags.OF==1;
 
 #define condition_p \
-	inv_cc()
+	cpu.eflags.PF==1;
 
 #define condition_s \
-	inv_cc()
+	cpu.eflags.SF==1;
 
 #define condition_ne \
-	inv_cc()
+	cpu.eflags.ZF==0;
 
 #define condition_na \
-	inv_cc()
+	cpu.eflags.CF==1||cpu.eflags.ZF==1;
 
 #define condition_no \
-	inv_cc()
+	cpu.eflags.OF==0;
 
 #define condition_np \
-	inv_cc()
+	cpu.eflags.PF==0;
 
 #define condition_ns \
-	inv_cc()
+	cpu.eflags.SF==0;
 
 #define condition_g \
-	inv_cc()
+	(cpu.eflags.SF==cpu.eflags.OF)&&cpu.eflags.ZF==0;
 
 #define condition_ge \
-	inv_cc()
+	(cpu.eflags.SF==cpu.eflags.OF)||cpu.eflags.ZF==1;
 
 #define condition_l \
-	inv_cc()
+	(cpu.eflags.SF!=cpu.eflags.OF)&&cpu.eflags.ZF==0;
 
 #define condition_le \
-	inv_cc()
+	(cpu.eflags.SF!=cpu.eflags.OF)||cpu.eflags.ZF==1;
 
 #define condition_ecxz \
 	cpu.ecx == 0
