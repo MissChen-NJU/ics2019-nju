@@ -24,7 +24,7 @@ make_instr_func(call_near)
     return 0;
 }
 
-make__instr_func(call_near_indirect)
+make_instr_func(call_near_indirect)
 {
     int len = 1;
     OPERAND rel, mem;
@@ -45,5 +45,5 @@ make__instr_func(call_near_indirect)
         cpu.eip = rel.val & 0xFFFF;
     else
         cpu.eip = rel.val;
-    return len;
+    return 0;
 }
