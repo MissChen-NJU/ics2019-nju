@@ -29,7 +29,7 @@ make__instr_func(call_near_indirect)
     int len = 1;
     OPERAND rel, mem;
     rel.data_size = data_size;
-    len = len + modrm_rm(eip + 1, &rel);
+    len = len + modrm_rm(cpu.eip + 1, &rel);
     operand_read(&rel);
     print_asm_1("call", "", len, &rel);
 
