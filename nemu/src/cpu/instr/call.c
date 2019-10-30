@@ -45,5 +45,5 @@ make__instr_func(call_near_indirect)
         cpu.eip = rel.val & 0xFFFF;
     else
         cpu.eip = rel.val;
-    return 0;
+    return len;
 }
