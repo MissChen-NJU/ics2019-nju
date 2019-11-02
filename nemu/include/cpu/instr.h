@@ -14,6 +14,7 @@
 extern uint8_t data_size;
 
 #include "cpu/instr/mov.h"
+#include "cpu/instr/pop.h"
 #include "cpu/instr/adc.h"
 #include "cpu/instr/or.h"
 #include "cpu/instr/xor.h"
