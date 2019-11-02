@@ -45,7 +45,7 @@ instr_func opcode_entry[256] = {
     /* 0xa4 - 0xa7*/ __ref_movs_b, __ref_movs_v, __ref_cmps_b, __ref_cmps_v,
     /* 0xa8 - 0xab*/ __ref_test_i2a_b, __ref_test_i2a_v, __ref_stos_b, __ref_stos_v,
     /* 0xac - 0xaf*/ inv, inv, inv, inv,
-    /* 0xb0 - 0xb3*/mov_i2r_b, mov_i2r_b, mov_i2r_b, mov_i2r_b,
+    /* 0xb0 - 0xb3*/ mov_i2r_b, mov_i2r_b, mov_i2r_b, mov_i2r_b,
     /* 0xb4 - 0xb7*/ mov_i2r_b, mov_i2r_b, mov_i2r_b, mov_i2r_b,
     /* 0xb8 - 0xbb*/ mov_i2r_v, mov_i2r_v, mov_i2r_v, mov_i2r_v,
     /* 0xbc - 0xbf*/ mov_i2r_v, mov_i2r_v, mov_i2r_v, mov_i2r_v,
