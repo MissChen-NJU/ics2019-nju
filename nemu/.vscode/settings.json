@@ -3,6 +3,7 @@
         "instr.h": "c",
         "stdio.h": "c",
         "call.h": "c",
-        "cmps.h": "c"
+        "cmps.h": "c",
+        "adc.h": "c"
     }
 }
