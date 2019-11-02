@@ -36,7 +36,7 @@ uint32_t loader()
 	{
 		if (ph->p_type == PT_LOAD)
 		{
-			uint32_t paddr=mm_malloc(ph->vaddr,ph->memsz);
+			uint32_t paddr=mm_malloc(ph->p_vaddr,ph->p_memsz);
 			memcpy((void *)paddr, (void *)ph->p_offset, ph->p_filesz);
 			if (ph->p_memsz > ph->p_filesz)
 			{
