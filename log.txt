@@ -19,3 +19,8 @@ make[2]: Entering directory '/home/chenhy/pa2019_fall/kernel'
 make[2]: 'kernel' is up to date.
 make[2]: Leaving directory '/home/chenhy/pa2019_fall/kernel'
 make[1]: Leaving directory '/home/chenhy/pa2019_fall'
+./nemu/nemu --testcase add
+NEMU load and execute img: [1m[32m./testcase/bin/add.img[0m  elf: [1m[36m./testcase/bin/add[0m
+(nemu) c
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x00030094
+NEMU2 terminated
