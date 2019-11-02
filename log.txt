@@ -2,3 +2,33 @@ scripts/make_emotion.sh
 make[1]: Entering directory '/home/chenhy/pa2019_fall'
 scripts/validate.mk:2: chenhy
 scripts/validate.mk:10: "Make Validation Pass"
+cd nemu && make
+make[2]: Entering directory '/home/chenhy/pa2019_fall/nemu'
+make[2]: 'nemu' is up to date.
+make[2]: Leaving directory '/home/chenhy/pa2019_fall/nemu'
+cd testcase && make
+make[2]: Entering directory '/home/chenhy/pa2019_fall/testcase'
+gcc -ggdb3 -MMD -MP -Wall -m32 -march=i386 -fno-builtin -fno-stack-protector -I../include -I../libs/newlib/include -c -o src/start.o start.S	
+make[2]: Leaving directory '/home/chenhy/pa2019_fall/testcase'
+cd kernel && make
+make[2]: Entering directory '/home/chenhy/pa2019_fall/kernel'
+make[2]: 'kernel' is up to date.
+make[2]: Leaving directory '/home/chenhy/pa2019_fall/kernel'
+make[1]: Leaving directory '/home/chenhy/pa2019_fall'
+cat make.log
+make[1]: Entering directory '/home/chenhy/pa2019_fall'
+scripts/validate.mk:2: chenhy
+scripts/validate.mk:10: "Make Validation Pass"
+cd nemu && make
+make[2]: Entering directory '/home/chenhy/pa2019_fall/nemu'
+make[2]: 'nemu' is up to date.
+make[2]: Leaving directory '/home/chenhy/pa2019_fall/nemu'
+cd testcase && make
+make[2]: Entering directory '/home/chenhy/pa2019_fall/testcase'
+gcc -ggdb3 -MMD -MP -Wall -m32 -march=i386 -fno-builtin -fno-stack-protector -I../include -I../libs/newlib/include -c -o src/start.o start.S	
+make[2]: Leaving directory '/home/chenhy/pa2019_fall/testcase'
+cd kernel && make
+make[2]: Entering directory '/home/chenhy/pa2019_fall/kernel'
+make[2]: 'kernel' is up to date.
+make[2]: Leaving directory '/home/chenhy/pa2019_fall/kernel'
+make[1]: Leaving directory '/home/chenhy/pa2019_fall'
