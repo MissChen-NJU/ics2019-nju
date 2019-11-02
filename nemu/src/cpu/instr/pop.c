@@ -5,10 +5,10 @@ static void instr_execute_1op()
     opr_dest.type = OPR_MEM;
     opr_dest.sreg = SREG_DS; 
     opr_dest.addr = cpu.esp;
-    
+
     operand_read(&opr_dest);
     opr_src.val=opr_dest.val;
-    operand_write(&opr_dest);
+    operand_write(&opr_src);
     cpu.esp+=32/8;
 }
 
