@@ -43,7 +43,7 @@ instr_func opcode_entry[256] = {
     /* 0x9c - 0x9f*/ inv, inv, sahf, inv,
     /* 0xa0 - 0xa3*/ mov_o2a_b, mov_o2a_v, mov_a2o_b, mov_a2o_v,
     /* 0xa4 - 0xa7*/ movs_b, movs_v, cmps_b, cmps_v,
-    /* 0xa8 - 0xab*/ inv, inv, inv, inv,
+    /* 0xa8 - 0xab*/ test_i2a_b, test_i2a_v, inv, inv,
     /* 0xac - 0xaf*/ inv, inv, inv, inv,
     /* 0xb0 - 0xb3*/ mov_i2r_b, mov_i2r_b, mov_i2r_b, mov_i2r_b,
     /* 0xb4 - 0xb7*/ mov_i2r_b, mov_i2r_b, mov_i2r_b, mov_i2r_b,
@@ -105,11 +105,11 @@ instr_func group_2_cv_entry[8] =
 
 /* 0xf6 */
 instr_func group_3_b_entry[8] =
-    {inv, inv, inv, inv, inv, inv, inv, inv};
+    {test_i2rm_b, inv, inv, inv, inv, inv, inv, inv};
 
 /* 0xf7 */
 instr_func group_3_v_entry[8] =
-    {inv, inv, inv, inv, inv, inv, inv, inv};
+    {test_i2rm_v, inv, inv, inv, inv, inv, inv, inv};
 
 /* 0xff */
 instr_func group_5_indirect_entry[8] =
