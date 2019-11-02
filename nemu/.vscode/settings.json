@@ -7,6 +7,8 @@
         "adc.h": "c",
         "mov.h": "c",
         "pop.h": "c",
-        "idiv.h": "c"
+        "idiv.h": "c",
+        "imul.h": "c",
+        "memory.h": "c"
     }
 }
