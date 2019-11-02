@@ -74,9 +74,10 @@ instr_func group_1_b_entry[8] =
 /* 0x81 */
 instr_func group_1_v_entry[8] =
     {add_i2rm_v, or_i2rm_v, adc_i2rm_v, sbb_i2rm_v, and_i2rm_v, sub_i2rm_v, xor_i2rm_v, cmp_i2rm_v};
+
 /* 0x83 */
 instr_func group_1_bv_entry[8] =
-    {__ref_add_i2rm_bv, __ref_or_i2rm_bv, __ref_adc_i2rm_bv, __ref_sbb_i2rm_bv, __ref_and_i2rm_bv, __ref_sub_i2rm_bv, __ref_xor_i2rm_bv, __ref_cmp_i2rm_bv};
+    {add_i2rm_bv, or_i2rm_bv, adc_i2rm_bv, sbb_i2rm_bv, and_i2rm_bv, sub_i2rm_bv, xor_i2rm_bv, cmp_i2rm_bv};
 
 /* 0xc0 */
 instr_func group_2_b_entry[8] =
@@ -183,7 +184,7 @@ instr_func opcode_2_byte_entry[256] = {
     /* 0x78 - 0x7b*/ inv, inv, inv, inv,
     /* 0x7c - 0x7f*/ inv, inv, inv, inv,
     /* 0x80 - 0x83*/ jo_near, jno_near, jb_near, jae_near,
-    /* 0x84 - 0x87*/ je_near, jne_near, jna_near, ja_near,
+    /* 0x84 - 0x87*/ je_near, jne_near, jna_near, __ref_ja_near,
     /* 0x88 - 0x8b*/ js_near, jns_near, jp_near, jnp_near,
     /* 0x8c - 0x8f*/ jl_near, jge_near, jle_near, jg_near,
     /* 0x90 - 0x93*/ seto_b, setno_b, setc_b, setae_b,
