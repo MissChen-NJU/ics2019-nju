@@ -37,11 +37,12 @@ uint32_t loader()
 		if (ph->p_type == PT_LOAD)
 		{
 			uint32_t paddr=mm_malloc(ph->p_vaddr,ph->p_memsz);
-			memcpy((void *)paddr, (void *)ph->p_offset, ph->p_filesz);
+			ide_read((uint8_t *)paddr,ph->p_offset,ph->p_filesz);
+			/* memcpy((void *)paddr, (void *)ph->p_offset, ph->p_filesz);
 			if (ph->p_memsz > ph->p_filesz)
 			{
 				memset((void *)paddr + ph->p_filesz, 0, ph->p_memsz - ph->p_filesz);
-			}
+			}*/
 		// remove this panic!!!
 		//panic("Please implement the loader");
 
