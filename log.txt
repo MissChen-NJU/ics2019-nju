@@ -32,3 +32,127 @@ make[2]: Entering directory '/home/chenhy/pa2019_fall/kernel'
 make[2]: 'kernel' is up to date.
 make[2]: Leaving directory '/home/chenhy/pa2019_fall/kernel'
 make[1]: Leaving directory '/home/chenhy/pa2019_fall'
+./nemu/nemu --autorun --testcase mov
+NEMU load and execute img: [1m[32m./testcase/bin/mov.img[0m  elf: [1m[36m./testcase/bin/mov[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x000302b6
+NEMU2 terminated
+./nemu/nemu --autorun --testcase mov-cmp
+NEMU load and execute img: [1m[32m./testcase/bin/mov-cmp.img[0m  elf: [1m[36m./testcase/bin/mov-cmp[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x0003037e
+NEMU2 terminated
+./nemu/nemu --autorun --testcase mov-c
+NEMU load and execute img: [1m[32m./testcase/bin/mov-c.img[0m  elf: [1m[36m./testcase/bin/mov-c[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x00030103
+NEMU2 terminated
+./nemu/nemu --autorun --testcase mov-jcc
+NEMU load and execute img: [1m[32m./testcase/bin/mov-jcc.img[0m  elf: [1m[36m./testcase/bin/mov-jcc[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x00030102
+NEMU2 terminated
+./nemu/nemu --autorun --testcase add
+NEMU load and execute img: [1m[32m./testcase/bin/add.img[0m  elf: [1m[36m./testcase/bin/add[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x00030094
+NEMU2 terminated
+./nemu/nemu --autorun --testcase add-longlong
+NEMU load and execute img: [1m[32m./testcase/bin/add-longlong.img[0m  elf: [1m[36m./testcase/bin/add-longlong[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x00030113
+NEMU2 terminated
+./nemu/nemu --autorun --testcase if-else
+NEMU load and execute img: [1m[32m./testcase/bin/if-else.img[0m  elf: [1m[36m./testcase/bin/if-else[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x000300c4
+NEMU2 terminated
+./nemu/nemu --autorun --testcase fib
+NEMU load and execute img: [1m[32m./testcase/bin/fib.img[0m  elf: [1m[36m./testcase/bin/fib[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x0003006f
+NEMU2 terminated
+./nemu/nemu --autorun --testcase bubble-sort
+NEMU load and execute img: [1m[32m./testcase/bin/bubble-sort.img[0m  elf: [1m[36m./testcase/bin/bubble-sort[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x000300fd
+NEMU2 terminated
+./nemu/nemu --autorun --testcase quick-sort
+NEMU load and execute img: [1m[32m./testcase/bin/quick-sort.img[0m  elf: [1m[36m./testcase/bin/quick-sort[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x000301e0
+NEMU2 terminated
+./nemu/nemu --autorun --testcase select-sort
+NEMU load and execute img: [1m[32m./testcase/bin/select-sort.img[0m  elf: [1m[36m./testcase/bin/select-sort[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x000300fd
+NEMU2 terminated
+./nemu/nemu --autorun --testcase max
+NEMU load and execute img: [1m[32m./testcase/bin/max.img[0m  elf: [1m[36m./testcase/bin/max[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x000300b0
+NEMU2 terminated
+./nemu/nemu --autorun --testcase min3
+NEMU load and execute img: [1m[32m./testcase/bin/min3.img[0m  elf: [1m[36m./testcase/bin/min3[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x000300dd
+NEMU2 terminated
+./nemu/nemu --autorun --testcase pascal
+NEMU load and execute img: [1m[32m./testcase/bin/pascal.img[0m  elf: [1m[36m./testcase/bin/pascal[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x0003015d
+NEMU2 terminated
+./nemu/nemu --autorun --testcase bit 
+NEMU load and execute img: [1m[32m./testcase/bin/bit.img[0m  elf: [1m[36m./testcase/bin/bit[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x00030212
+NEMU2 terminated
+./nemu/nemu --autorun --testcase movsx
+NEMU load and execute img: [1m[32m./testcase/bin/movsx.img[0m  elf: [1m[36m./testcase/bin/movsx[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x0003019a
+NEMU2 terminated
+./nemu/nemu --autorun --testcase sub-longlong
+NEMU load and execute img: [1m[32m./testcase/bin/sub-longlong.img[0m  elf: [1m[36m./testcase/bin/sub-longlong[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x0003010a
+NEMU2 terminated
+./nemu/nemu --autorun --testcase fact
+NEMU load and execute img: [1m[32m./testcase/bin/fact.img[0m  elf: [1m[36m./testcase/bin/fact[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x000300ae
+NEMU2 terminated
+./nemu/nemu --autorun --testcase gotbaha
+NEMU load and execute img: [1m[32m./testcase/bin/gotbaha.img[0m  elf: [1m[36m./testcase/bin/gotbaha[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x000300e3
+NEMU2 terminated
+./nemu/nemu --autorun --testcase leap-year
+NEMU load and execute img: [1m[32m./testcase/bin/leap-year.img[0m  elf: [1m[36m./testcase/bin/leap-year[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x0003009c
+NEMU2 terminated
+./nemu/nemu --autorun --testcase matrix-mul-small
+NEMU load and execute img: [1m[32m./testcase/bin/matrix-mul-small.img[0m  elf: [1m[36m./testcase/bin/matrix-mul-small[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x00030125
+NEMU2 terminated
+./nemu/nemu --autorun --testcase matrix-mul
+NEMU load and execute img: [1m[32m./testcase/bin/matrix-mul.img[0m  elf: [1m[36m./testcase/bin/matrix-mul[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x00030172
+NEMU2 terminated
+./nemu/nemu --autorun --testcase mul-longlong 
+NEMU load and execute img: [1m[32m./testcase/bin/mul-longlong.img[0m  elf: [1m[36m./testcase/bin/mul-longlong[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x0003013a
+NEMU2 terminated
+./nemu/nemu --autorun --testcase prime
+NEMU load and execute img: [1m[32m./testcase/bin/prime.img[0m  elf: [1m[36m./testcase/bin/prime[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x00030093
+NEMU2 terminated
+./nemu/nemu --autorun --testcase shuixianhua
+NEMU load and execute img: [1m[32m./testcase/bin/shuixianhua.img[0m  elf: [1m[36m./testcase/bin/shuixianhua[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x00030114
+NEMU2 terminated
+./nemu/nemu --autorun --testcase sum
+NEMU load and execute img: [1m[32m./testcase/bin/sum.img[0m  elf: [1m[36m./testcase/bin/sum[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x00030048
+NEMU2 terminated
+./nemu/nemu --autorun --testcase wanshu
+NEMU load and execute img: [1m[32m./testcase/bin/wanshu.img[0m  elf: [1m[36m./testcase/bin/wanshu[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x00030091
+NEMU2 terminated
+./nemu/nemu --autorun --testcase struct
+NEMU load and execute img: [1m[32m./testcase/bin/struct.img[0m  elf: [1m[36m./testcase/bin/struct[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x0003010c
+NEMU2 terminated
+./nemu/nemu --autorun --testcase string
+NEMU load and execute img: [1m[32m./testcase/bin/string.img[0m  elf: [1m[36m./testcase/bin/string[0m
+nemu: HIT [0;32mGOOD[0m TRAP at eip = 0x0003016a
+NEMU2 terminated
+./nemu/nemu --autorun --testcase hello-str 
+NEMU load and execute img: [1m[32m./testcase/bin/hello-str.img[0m  elf: [1m[36m./testcase/bin/hello-str[0m
+nemu: HIT [0;31mBAD[0m TRAP at eip = 0x0003007b
+NEMU2 terminated
+./nemu/nemu --autorun --testcase test-float
+NEMU load and execute img: [1m[32m./testcase/bin/test-float.img[0m  elf: [1m[36m./testcase/bin/test-float[0m
+nemu: HIT [0;31mBAD[0m TRAP at eip = 0x000300c8
+NEMU2 terminated
