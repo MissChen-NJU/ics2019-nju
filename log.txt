@@ -1,0 +1,4 @@
+scripts/make_emotion.sh
+make[1]: Entering directory '/home/chenhy/pa2019_fall'
+scripts/validate.mk:2: chenhy
+scripts/validate.mk:10: "Make Validation Pass"
