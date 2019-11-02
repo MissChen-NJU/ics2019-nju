@@ -4,6 +4,8 @@
         "stdio.h": "c",
         "call.h": "c",
         "cmps.h": "c",
-        "adc.h": "c"
+        "adc.h": "c",
+        "mov.h": "c",
+        "pop.h": "c"
     }
 }
