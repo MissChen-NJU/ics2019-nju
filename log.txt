@@ -1,0 +1,2 @@
+scripts/make_emotion.sh
+session_name_
