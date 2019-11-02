@@ -6,6 +6,7 @@
         "cmps.h": "c",
         "adc.h": "c",
         "mov.h": "c",
-        "pop.h": "c"
+        "pop.h": "c",
+        "idiv.h": "c"
     }
 }
