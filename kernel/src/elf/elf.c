@@ -36,13 +36,13 @@ uint32_t loader()
 	{
 		if (ph->p_type == PT_LOAD)
 		{
-			//memcpy((void *)ph->p_vaddr, (void *)ph->p_offset, ph->p_filesz);
-			//if (ph->p_memsz > ph->p_filesz)
-			//{
-			//	memset((void *)ph->p_vaddr + ph->p_filesz, 0, ph->p_memsz - ph->p_filesz);
-			//}
+			memcpy((void *)ph->p_vaddr, (void *)ph->p_offset, ph->p_filesz);
+			if (ph->p_memsz > ph->p_filesz)
+			{
+				memset((void *)ph->p_vaddr + ph->p_filesz, 0, ph->p_memsz - ph->p_filesz);
+			}
 		// remove this panic!!!
-		panic("Please implement the loader");
+		//panic("Please implement the loader");
 
 /* TODO: copy the segment from the ELF file to its proper memory area */
 
