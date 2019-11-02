@@ -33,7 +33,6 @@ make_instr_func(jmp_near_indirect)
                 cpu.eip = rel.val & 0xFFFF;
         else
                 cpu.eip = rel.val;
-
         return 0;
 }
 make_instr_func(jmp_short)
