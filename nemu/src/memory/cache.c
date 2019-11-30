@@ -11,7 +11,7 @@ void init_cache()
 {
     int i;
     for (i = 0; i < 1024; i++)
-        cache[i].valid = 0;
+        L1_dcache[i].valid = 0;
 }
 
 uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)

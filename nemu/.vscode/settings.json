@@ -9,6 +9,7 @@
         "pop.h": "c",
         "idiv.h": "c",
         "imul.h": "c",
-        "memory.h": "c"
+        "memory.h": "c",
+        "time.h": "c"
     }
 }
