@@ -65,6 +65,9 @@ void init_mem()
 {
 	// clear the memory on initiation
 	memset(hw_mem, 0, MEM_SIZE_B);
+#ifdef CACHE_ENABLED
+	init_cache();
+#endif
 
 #ifdef TLB_ENABLED
 	make_all_tlb();
