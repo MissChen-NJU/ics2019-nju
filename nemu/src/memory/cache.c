@@ -5,13 +5,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-CacheLine L1_dcache[1024];
+CacheLine Cache[1024];
 
 void init_cache()
 {
     int i;
     for (i = 0; i < 1024; i++)
-        L1_dcache[i].valid = 0;
+        Cache[i].valid = 0;
 }
 
 uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
@@ -77,8 +77,8 @@ void cache_write(paddr_t paddr, size_t len, uint32_t data, CacheLine *cache)
                 memcpy(cache[group_num * 8 + i].block + offset, &data, len);
             else
             {
-                cache_write(paddr, 64 - offset, data, L1_dcache);
-                cache_write(paddr + 64 - offset, len + offset - 64, data >> (8 * (64 - offset)), L1_dcache);
+                cache_write(paddr, 64 - offset, data, cache);
+                cache_write(paddr + 64 - offset, len + offset - 64, data >> (8 * (64 - offset)), cache);
             }
             break;
         }
