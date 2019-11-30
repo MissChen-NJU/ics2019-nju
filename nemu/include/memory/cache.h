@@ -6,7 +6,7 @@
 typedef struct
 {
     bool valid;
-    uint32_t sigh;
+    uint32_t sign;
     uint8_t block[64];
 }CacheLine;
 
