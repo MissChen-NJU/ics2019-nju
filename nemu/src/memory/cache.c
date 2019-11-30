@@ -11,7 +11,7 @@ void init_cache()
 {
     int i;
     for (i = 0; i < 1024; i++)
-        Cache[i].valid = 0;
+        Cache[i].valid = false;
 }
 
 uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
@@ -30,7 +30,7 @@ uint32_t cache_read(paddr_t paddr, size_t len, CacheLine *cache)
             else
             {
                 uint32_t temp1 = 0, temp2 = 0;
-                memcpy(&temp2, cache[group_num * 8 + i].block + offset, 64 - offset);
+                memcpy(&temp1, cache[group_num * 8 + i].block + offset, 64 - offset);
                 temp2 = cache_read(paddr + 64 - offset, offset + len - 64, cache) << (8 * (64 - offset));
                 ret = temp2 | temp1;
             }
