@@ -32,6 +32,7 @@ void init_cpu(const uint32_t init_eip)
 	for (i = 0; i < 6; i++)
 	{
 		cpu.segReg[i].val = 0x0;
+		cpu.segReg[i].base = cpu.segReg[i].limit = cpu.segReg[i].type = cpu.segReg[i].privilege_level = cpu.segReg[i].soft_use = 0x0;
 	}
 #endif
 #ifdef IA32_INTR

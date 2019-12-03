@@ -4,7 +4,7 @@
 #include "nemu.h"
 typedef struct
 {
-	uint32_t limit;
+	uint16_t limit;
 	uint32_t base;
 } GDTR;
 
