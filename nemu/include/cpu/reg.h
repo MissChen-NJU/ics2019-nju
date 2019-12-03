@@ -20,6 +20,15 @@ typedef union{
 	uint32_t val;
 }CR0;
 
+typedef union{
+	struct{
+		uint32_t rpl:2;
+		uint32_t ti:1;
+		uint32_t index:13;
+	};
+	uint16_t val;
+}SegReg;
+
 // define the structure of registers
 typedef struct
 {
