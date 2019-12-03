@@ -2,43 +2,53 @@
 #define __REG_H__
 
 #include "nemu.h"
-typedef struct{
+typedef struct
+{
 	uint32_t limit;
 	uint32_t base;
-}GDTR;
+} GDTR;
 
-typedef union{
-	struct{
-		uint32_t pe:1;
-		uint32_t mp:1;
-		uint32_t em:1;
-		uint32_t ts:1;
-		uint32_t et:1;
-		uint32_t reserve:26;
-		uint32_t pg:1;
+typedef union {
+	struct
+	{
+		uint32_t pe : 1;
+		uint32_t mp : 1;
+		uint32_t em : 1;
+		uint32_t ts : 1;
+		uint32_t et : 1;
+		uint32_t reserve : 26;
+		uint32_t pg : 1;
 	};
 	uint32_t val;
-}CR0;
+} CR0;
 
-typedef union{
-	struct{
-		uint32_t rpl:2;
-		uint32_t ti:1;
-		uint32_t index:13;
+typedef struct
+{
+	union {
+		struct
+		{
+			uint32_t rpl : 2;
+			uint32_t ti : 1;
+			uint32_t index : 13;
+		};
+		uint16_t val;
 	};
-	uint16_t val;
-}SegReg;
+	struct{
+		uint32_t base;
+		uint32_t limit;
+		uint32_t type:5;
+		uint32_t privilege_level:2;
+		uint32_t soft_use:1;
+	};
+} SegReg;
 
 // define the structure of registers
 typedef struct
 {
 	// general purpose registers
-	union
-	{
-		union
-		{
-			union
-			{
+	union {
+		union {
+			union {
 				uint32_t _32;
 				uint16_t _16;
 				uint8_t _8[2];
