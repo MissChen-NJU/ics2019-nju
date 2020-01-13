@@ -9,7 +9,7 @@ uint32_t segment_translate(uint32_t offset, uint8_t sreg)
 	 */
 	#ifdef IA32_SEG
 		uint32_t base=cpu.segReg[sreg].base;
-		base+=offset;
+		base=base+offset;
 		return base;
 	#else 
 		return 0;
@@ -22,8 +22,7 @@ void load_sreg(uint8_t sreg)
 	/* TODO: load the invisibile part of the segment register 'sreg' by reading the GDT.
 	 * The visible part of 'sreg' should be assigned by mov or ljmp already.
 	 */
-	#ifndef IA32_SEG
-	#else
+	#ifdef IA32_SEG
 		uint32_t addr=(uint32_t)hw_mem+8*cpu.segReg[sreg].index+cpu.gdtr.base;
 		SegDesc* segdesc=(void*)addr;
 		uint32_t privilege_level=segdesc->privilege_level;
