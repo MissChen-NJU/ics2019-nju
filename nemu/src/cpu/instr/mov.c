@@ -29,7 +29,6 @@ make_instr_func(mov_c2r_l)
         operand_read(&opr_src);
         opr_dest.val=opr_src.val;
         operand_write(&opr_dest);
-        print_asm_2("mov",opr_dest.data_size==8?"b":(opr_))
         if(opr_dest.data_size==8)
         {
                 print_asm_2("mov","b",len,&opr_src,&opr_dest);
@@ -54,7 +53,6 @@ make_instr_func(mov_r2c_l)
         operand_read(&opr_src);
         opr_dest.val=opr_src.val;
         operand_write(&opr_dest);
-        print_asm_2("mov",opr_dest.data_size==8?"b":(opr_))
         if(opr_dest.data_size==8)
         {
                 print_asm_2("mov","b",len,&opr_src,&opr_dest);
