@@ -7,7 +7,7 @@ make_instr_func(lgdt)
     len+=modrm_rm(eip+1,&rel);
     rel.data_size=16;
     operand_read(&rel);
-    cpu.gdtr.limt=rel.val;
+    cpu.gdtr.limit=rel.val;
     rel.addr+=2;
     rel.data_size=32;
     operand_read(&rel);
