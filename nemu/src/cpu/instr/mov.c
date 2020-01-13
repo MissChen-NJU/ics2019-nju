@@ -20,6 +20,69 @@ make_instr_impl_2op(mov, a, o, v)
 make_instr_impl_2op(mov, o, a, b)
 make_instr_impl_2op(mov, o, a, v)
 
+make_instr_func(mov_c2r_1)
+{
+        int len=1;
+        opr_dest.data_size=opr_src.data_size=32;
+        len+=modrm_r_rm(eip+1,&opr_src,&opr_dest);
+        opr_src.type=OPR_CREG;
+        operand_read(&opr_src);
+        opr_dest.val=opr_src.val;
+        operand_write(&opr_dest);
+        print_asm_2("mov",opr_dest.data_size==8?"b":(opr_))
+        if(opr_dest.data_size==8)
+        {
+                print_asm_2("mov","b",len,&opr_src,&opr_dest);
+        }
+        else if(opr_dest.data_size==16)
+        {
+                print_asm_2("mov","w",len,&opr_src,&opr_dest);  
+        }
+        else
+        {
+                print_asm_2("mov","l",len,&opr_src,&opr_dest);
+        }
+        return len;
+}
+
+make_instr_func(mov_c2r_1)
+{
+        int len=1;
+        opr_dest.data_size=opr_src.data_size=32;
+        len+=modrm_r_rm(eip+1,&opr_dest,&opr_src);
+        opr_dest.type=OPR_CREG;
+        operand_read(&opr_src);
+        opr_dest.val=opr_src.val;
+        operand_write(&opr_dest);
+        print_asm_2("mov",opr_dest.data_size==8?"b":(opr_))
+        if(opr_dest.data_size==8)
+        {
+                print_asm_2("mov","b",len,&opr_src,&opr_dest);
+        }
+        else if(opr_dest.data_size==16)
+        {
+                print_asm_2("mov","w",len,&opr_src,&opr_dest);  
+        }
+        else
+        {
+                print_asm_2("mov","l",len,&opr_src,&opr_dest);
+        }
+        return len;
+}
+
+make_instr_func(mov_rm2s_w)
+{
+        int len=1;
+        opr_dest.data_size=opr_src.data_size=16;
+        len+=modrm_r_rm(eip+1,&opr_dest,&opr_src);
+        opr_dest.type=OPR_SREG;
+        operand_read(&opr_src);
+        opr_dest.val=opr_src.val;
+        operand_write(&opr_dest);
+        print_asm_2("mov","w",len,&opr_src,&opr_dest);
+        return len;
+}
+
 make_instr_func(mov_zrm82r_v)
 {
         int len = 1;
