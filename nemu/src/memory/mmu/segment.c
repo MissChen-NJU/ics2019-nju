@@ -8,7 +8,7 @@ uint32_t segment_translate(uint32_t offset, uint8_t sreg)
 	 * by reading the invisible part of the segment register 'sreg'
 	 */
 	uint32_t base=cpu.segReg[sreg].base;
-	base+=offset
+	base+=offset;
 	return base;
 }
 
