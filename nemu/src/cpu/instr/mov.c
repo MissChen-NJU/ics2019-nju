@@ -20,7 +20,7 @@ make_instr_impl_2op(mov, a, o, v)
 make_instr_impl_2op(mov, o, a, b)
 make_instr_impl_2op(mov, o, a, v)
 
-make_instr_func(mov_c2r_1)
+make_instr_func(mov_c2r_l)
 {
         int len=1;
         opr_dest.data_size=opr_src.data_size=32;
@@ -45,7 +45,7 @@ make_instr_func(mov_c2r_1)
         return len;
 }
 
-make_instr_func(mov_c2r_1)
+make_instr_func(mov_r2c_l)
 {
         int len=1;
         opr_dest.data_size=opr_src.data_size=32;
