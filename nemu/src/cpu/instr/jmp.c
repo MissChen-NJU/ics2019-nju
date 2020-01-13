@@ -54,7 +54,7 @@ make_instr_func(jmp_short)
 
 make_instr_func(jmp_far_imm)
 {
-        #ifndef IA32_SEG;
+        #ifndef IA32_SEG
                 return 0;
         #else
                 OPERAND rel;
