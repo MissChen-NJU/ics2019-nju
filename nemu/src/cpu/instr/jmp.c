@@ -54,6 +54,10 @@ make_instr_func(jmp_short)
 
 make_instr_func(jmp_far_imm)
 {
+        return 0;
+}
+/* 
+{
         OPERAND rel;
         rel.type = OPR_IMM;
         rel.sreg = SREG_CS;
@@ -72,4 +76,4 @@ make_instr_func(jmp_far_imm)
         cpu.cs.val = instr_fetch(eip + 5, 2);
         load_sreg(1);
         return 0;
-}
+}*/
