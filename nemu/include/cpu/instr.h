@@ -42,6 +42,7 @@ extern uint8_t data_size;
 #include "cpu/instr/shift.h"
 #include "cpu/instr/set.h"
 #include "cpu/instr/not.h"
+#include "cpu/instr/lgdt.h"
 #include "cpu/instr/flags.h"
 #include "cpu/instr/group.h"
 #include "cpu/instr/special.h"
