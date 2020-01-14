@@ -14,6 +14,8 @@ paddr_t page_translate(laddr_t laddr)
 		assert(pdir->present == 1);
 		assert(ptable->present == 1);
 		return (ptable->page_frame << 12) + offset;
+	#else
+		return 0;
 	#endif
 #else
 	return tlb_read(laddr) | (laddr & PAGE_MASK);
