@@ -46,7 +46,7 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 {
 	assert(len == 1 || len == 2 || len == 4);
 	uint32_t paddr=laddr;
-	if(cpu.cr0.pe&&cpu.cr0.pg)
+	if(cpu.cr0.pe==1&&cpu.cr0.pg==1)
 	{
 		paddr=page_translate(laddr);
 	}
@@ -57,7 +57,7 @@ void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 {
 	assert(len == 1 || len == 2 || len == 4);
 	uint32_t paddr=laddr;
-	if(cpu.cr0.pe&&cpu.cr0.pg)
+	if(cpu.cr0.pe==1&&cpu.cr0.pg==1)
 	{
 		paddr=page_translate(laddr);
 	}
