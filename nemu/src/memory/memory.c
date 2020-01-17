@@ -67,17 +67,11 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 {
 	assert(len == 1 || len == 2 || len == 4);
 #ifdef IA32_PAGE
-	//printf("%x\n",laddr);
-	//printf("laddr ====%x\n",laddr);
-	//printf("cr0.PE= %x   ======    \n", cpu.cr0.PE);
-	//printf("cr0.PG ==== %x\n",cpu.cr0.PG);
 	uint32_t paddr = laddr;
 	if (cpu.cr0.pg == 1 && cpu.cr0.pe == 1)
 	{
 		if (((laddr & 0xFFF) + len) > 0x1000)
 		{
-			//printf("laddr == %x,len == %x\n",laddr,len);
-			//assert(0);
 			uint32_t data_l = 0x0, data_h = 0x0;
 			size_t len_l, len_h;
 			len_h = (laddr & 0xFFF) + len - 0x1000;
@@ -111,7 +105,6 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 		else
 			paddr = page_translate(laddr);
 	}
-	//printf("read laddr >> paddr: %x >> %x\n\n",laddr,paddr);
 	return paddr_read(paddr, len);
 #else
 	return paddr_read(laddr, len);
@@ -122,10 +115,6 @@ void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 {
 #ifdef IA32_PAGE
 	uint32_t paddr = laddr;
-	//printf("%x\n     ===",laddr);
-	//printf("edi  === %x\n",cpu.edi);
-	//assert(laddr<0xc0092010 || laddr > 0xc7000000);
-	//printf("cr0 = %x   ======    ", cpu.cr0.PG);
 	if (cpu.cr0.pg == 1 && cpu.cr0.pe == 1)
 	{
 		if (((laddr & 0xFFF) + len) > 0x1000)
@@ -155,10 +144,7 @@ void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 		}
 		else
 			paddr = page_translate(laddr);
-		//printf("had open     ");
-		//assert(0);
 	}
-	//printf("Write laddr 0x%x, Paddr: %x ,data: %x\n\n",laddr, paddr, data);
 	paddr_write(paddr, len, data);
 #else
 	paddr_write(laddr, len, data);
