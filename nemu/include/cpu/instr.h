@@ -13,6 +13,8 @@
 
 extern uint8_t data_size;
 
+#include "cpu/instr/out.h"
+#include "cpu/instr/in.h"
 #include "cpu/instr/mov.h"
 #include "cpu/instr/imul.h"
 #include "cpu/instr/idiv.h"
