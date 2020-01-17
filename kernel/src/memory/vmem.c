@@ -23,7 +23,7 @@ void create_video_mapping()
 	ptable+=0xa0;
 	for(uint32_t i=0xa0;i<=0xaf;i++)
 	{
-		ptable->val=make_pte(i<<12);
+		ptable->val=make_pte(i<<14);
 		ptable++;
 	}
 	//panic("please implement me");
