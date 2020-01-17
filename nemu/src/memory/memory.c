@@ -72,7 +72,7 @@ uint32_t laddr_read(laddr_t laddr, size_t len)
 	//printf("cr0.PE= %x   ======    \n", cpu.cr0.PE);
 	//printf("cr0.PG ==== %x\n",cpu.cr0.PG);
 	uint32_t paddr = laddr;
-	if (cpu.cr0.PG == 1 && cpu.cr0.PE == 1)
+	if (cpu.cr0.pg == 1 && cpu.cr0.pe == 1)
 	{
 		if (((laddr & 0xFFF) + len) > 0x1000)
 		{
@@ -126,7 +126,7 @@ void laddr_write(laddr_t laddr, size_t len, uint32_t data)
 	//printf("edi  === %x\n",cpu.edi);
 	//assert(laddr<0xc0092010 || laddr > 0xc7000000);
 	//printf("cr0 = %x   ======    ", cpu.cr0.PG);
-	if (cpu.cr0.PG == 1 && cpu.cr0.PE == 1)
+	if (cpu.cr0.pg == 1 && cpu.cr0.pe == 1)
 	{
 		if (((laddr & 0xFFF) + len) > 0x1000)
 		{
