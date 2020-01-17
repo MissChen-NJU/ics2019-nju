@@ -99,7 +99,6 @@ void exec(uint32_t n)
 
 #ifdef IA32_INTR
 		// check for interrupt
-		//do_intr();
 		if(cpu.intr&&cpu.eflags.IF)
 		{
 			uint8_t intr_no=i8259_query_intr_no();
