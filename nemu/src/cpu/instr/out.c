@@ -3,7 +3,7 @@
 
 make_instr_func(out_b)
 {
-    print_asm_0("out","",1);
+    print_asm_0("out","b",1);
     pio_write(cpu.edx,1,cpu.eax);
     return 1;
 }
