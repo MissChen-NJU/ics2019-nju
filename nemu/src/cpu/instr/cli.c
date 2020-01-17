@@ -1,6 +1,6 @@
 #include "cpu/instr.h"
 
-make_inctr_func(cli)
+make_instr_func(cli)
 {
     cpu.eflags.IF=0;
     print_asm_0("cli","",1);
