@@ -6,11 +6,11 @@
 /* There are no more than 16(actually, 3) kinds of hardward interrupts. */
 #define NR_HARD_INTR 16
 
-struct IRQ_t
+typedef struct 
 {
 	void (*routine)(void);
 	struct IRQ_t *next;
-};
+} IRQ_t;
 
 static struct IRQ_t handle_pool[NR_IRQ_HANDLE];
 static struct IRQ_t *handles[NR_HARD_INTR];
