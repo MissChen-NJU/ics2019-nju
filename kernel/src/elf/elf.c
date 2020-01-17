@@ -42,7 +42,7 @@ uint32_t loader()
 			ide_read((void *)paddr,ELF_OFFSET_IN_DISK+ph->p_offset,ph->p_filesz);
 			//memcpy((void *)ph->p_vaddr,(void *)(ph->p_offset),ph->p_filesz);
 			if(ph->p_memsz>ph->p_filesz){
-				memset((void *)(ph->p_vaddr+ph->p_filesz),0,ph->p_memsz-ph->p_filesz);
+				memset((void *)(paddr+ph->p_filesz),0,ph->p_memsz-ph->p_filesz);
 			}
 			
 
