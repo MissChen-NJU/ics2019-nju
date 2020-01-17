@@ -36,7 +36,7 @@ uint32_t loader()
 	{
 		if (ph->p_type == PT_LOAD)
 		{
-			uint32_t paddr;
+			uint32_t paddr=laddr;
 			/* copy the segment from the ELF file to its proper memory area */
 			/* zeror the memory area [vaddr + file_sz, vaddr + mem_sz) */
 			//paddr = mm_malloc(ph->p_vaddr, ph->p_memsz);
