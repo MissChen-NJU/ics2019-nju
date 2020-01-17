@@ -53,7 +53,7 @@ uint32_t loader()
 			//ide_read((uint8_t *)paddr,ELF_OFFSET_IN_DISK+ph->p_offset,ph->p_filesz);
 			
 			memcpy((void *)paddr,(void *)toload,ph->p_filesz);
-			memcpy((void *)paddr,(void *)(ph->p_offset+buf),ph->p_filesz);
+			//memcpy((void *)paddr,(void *)(ph->p_offset+buf),ph->p_filesz);
 			/* TODO: zeror the memory area [vaddr + file_sz, vaddr + mem_sz) */
 			if(ph->p_filesz < ph->p_memsz){
 				memset((void *)(paddr+ph->p_filesz), 0, ph->p_memsz-ph->p_filesz);
