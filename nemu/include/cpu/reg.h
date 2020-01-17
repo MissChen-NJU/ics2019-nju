@@ -8,7 +8,7 @@ typedef struct
 	uint32_t base;
 } GDTR;
 
-typedef struct
+typedef structreg
 {
 	uint32_t base;
 	uint16_t limit;
