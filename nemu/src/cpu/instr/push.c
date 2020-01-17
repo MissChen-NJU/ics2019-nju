@@ -38,3 +38,53 @@ make_instr_func(push_i_b)
 
     return len;
 }
+
+make_inctr_func(pusha)
+{
+    uint32_t temp=cpu.esp;
+    opr_dest.data_size=32;
+    opr_dest.type=OPE_MEM;
+    opr_dest.sreg=SREG_DS;
+
+    cpu.esp-=data_size/8;
+    opr_dest.addr=cpu.esp;
+    opr_dest.val=cpu.eax;
+    operand_write(&opr_dest);
+
+    cpu.esp-=data_size/8;
+    opr_dest.addr=cpu.esp;
+    opr_dest.val=cpu.ecx;
+    operand_write(&opr_dest);
+
+    cpu.esp-=data_size/8;
+    opr_dest.addr=cpu.esp;
+    opr_dest.val=cpu.edx;
+    operand_write(&opr_dest);
+
+    cpu.esp-=data_size/8;
+    opr_dest.addr=cpu.esp;
+    opr_dest.val=cpu.ebx;
+    operand_write(&opr_dest);
+
+    cpu.esp-=data_size/8;
+    opr_dest.addr=cpu.esp;
+    opr_dest.val=temp;
+    operand_write(&opr_dest);
+
+    cpu.esp-=data_size/8;
+    opr_dest.addr=cpu.esp;
+    opr_dest.val=cpu.ebp;
+    operand_write(&opr_dest);
+
+    cpu.esp-=data_size/8;
+    opr_dest.addr=cpu.esp;
+    opr_dest.val=cpu.esi;
+    operand_write(&opr_dest);
+
+    cpu.esp-=data_size/8;
+    opr_dest.addr=cpu.esp;
+    opr_dest.val=cpu.edi;
+    operand_write(&opr_dest);
+
+    return 1;
+}
