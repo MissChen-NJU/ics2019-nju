@@ -43,12 +43,12 @@ uint32_t loader()
 			paddr=mm_malloc(ph->p_vaddr,ph->p_memsz);
 			Log("malloc success,offset is %x\n",ph->p_offset);
 			memcpy((void *)paddr,(void *)(elf+ph->p_offset),ph->p_filesz);
-			ide_read((void *)paddr,ELF_OFFSET_IN_DISK+ph->p_offset,ph->p_filesz);
+			//ide_read((void *)paddr,ELF_OFFSET_IN_DISK+ph->p_offset,ph->p_filesz);
 			Log("clear success\n");
 			//ide_read((void *)ph->p_vaddr, ph->p_offset, ph->p_filesz);
-			for(int i=0;i<ph->p_filesz;i++){
+			/*for(int i=0;i<ph->p_filesz;i++){
 				*((uint8_t *)ph->p_vaddr+i)=*((uint8_t *)ph->p_offset+i);
-			}
+			}*/
 			if(ph->p_memsz>ph->p_filesz){
 				memset((void *)(paddr+ph->p_filesz),0,ph->p_memsz-ph->p_filesz);
 			}
