@@ -28,15 +28,19 @@ uint32_t paddr_read(paddr_t paddr, size_t len)
 #ifdef CACHE_ENABLED
 	ret = cache_read(paddr, len, Cache);
 #else
-	int mapid=is_mmio(paddr);
-	if(mapid==-1)
-	{
-		ret=hw_mem_read(paddr,len);
-	}
-	else
-	{
-		ret=mmio_read(paddr,len,mapid);
-	}
+	#ifdef HAS_DEVICE_VGA
+		int mapid=is_mmio(paddr);
+		if(mapid==-1)
+		{
+			ret=hw_mem_read(paddr,len);
+		}
+		else
+		{
+			ret=mmio_read(paddr,len,mapid);
+		}
+	#else
+		ret = hw_mem_read(paddr, len);
+	#endif
 #endif
 	return ret;
 }
@@ -46,18 +50,21 @@ void paddr_write(paddr_t paddr, size_t len, uint32_t data)
 #ifdef CACHE_ENABLED
 	cache_write(paddr, len, data, Cache);
 #else
-	int mapid=is_mmio(paddr);
-	if(mapid==-1)
-	{
-		hw_mem_write(paddr,len,data);
-	}
-	else
-	{
-		mmio_write(paddr,len,data,mapid);
-	}
+	#ifdef HAS_DEVICE_VGA
+		int mapid=is_mmio(paddr);
+		if(mapid==-1)
+		{
+			hw_mem_write(paddr,len,data);
+		}
+		else
+		{
+			mmio_write(paddr,len,data,mapid);
+		}
+	#else
+		hw_mem_write(paddr, len, data);
+	#endif 
 #endif
 }
-
 /*uint32_t laddr_read(laddr_t laddr, size_t len)
 {
 	assert(len == 1 || len == 2 || len == 4);
