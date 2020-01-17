@@ -16,7 +16,7 @@ make_instr_impl_1op(pop, rm, v);
 make_instr_impl_1op(pop, i, b);
 make_instr_impl_1op(pop, i, v);
 
-make_inctr_func(popa)
+make_instr_func(popa)
 {
     print_asm_0("popa","",1);
     opr_src.type=OPR_MEM;

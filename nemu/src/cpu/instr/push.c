@@ -39,7 +39,7 @@ make_instr_func(push_i_b)
     return len;
 }
 
-make_inctr_func(pusha)
+make_instr_func(pusha)
 {
     uint32_t temp=cpu.esp;
     opr_dest.data_size=32;
