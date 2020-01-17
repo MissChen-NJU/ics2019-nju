@@ -42,7 +42,7 @@ uint32_t loader()
 			uint32_t paddr = mm_malloc(ph->p_vaddr, ph->p_memsz);
 #endif
 			void* dest=(void*)paddr;
-			void* src=(void*)(ph->poffset);
+			void* src=(void*)(ph->p_offset);
 			//ide_read((uint8_t *)ph->p_vaddr, ph->p_offset, ph->p_filesz);
 			memcpy((void *)dest, (void *)src, ph->p_filesz);
 			if (ph->p_memsz > ph->p_filesz)
