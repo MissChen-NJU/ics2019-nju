@@ -2,7 +2,7 @@
 
 make_instr_func(lidt)
 {
-    len = 1;
+    int len = 1;
     OPERAND rel;
     len = len + modrm_rm(eip + 1, &rel);
     rel.data_size = 16;
