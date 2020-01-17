@@ -6,7 +6,7 @@ paddr_t page_translate(laddr_t laddr)
 {
 #ifndef TLB_ENABLED
 	#ifdef IA32_PAGE
-		uint32_t dir = (laddr >> 22)&0x3ff;
+		uint32_t dir = laddr >> 22;
 		uint32_t page = (laddr >> 12) & 0x3ff;
 		PDE *page_DIR_ENTRY = (PDE *)((cpu.cr3.pdtr << 12) + (uint32_t)hw_mem);
 		page_DIR_ENTRY += dir<<2;
