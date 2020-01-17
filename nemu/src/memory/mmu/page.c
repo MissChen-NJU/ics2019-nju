@@ -14,7 +14,6 @@ paddr_t page_translate(laddr_t laddr)
 	PTE *page_TBL_ENTRY = (PTE *)((page_DIR_ENTRY->page_frame << 12) + (uint32_t)hw_mem);
 	page_TBL_ENTRY += page;
 	assert(page_TBL_ENTRY->present == 1);
-
 	return (page_TBL_ENTRY->page_frame << 12) | (laddr & 0xFFF);
 #else
 	printf("\nPlease implement page_translate()\n");
