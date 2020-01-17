@@ -99,13 +99,8 @@ void exec(uint32_t n)
 
 #ifdef IA32_INTR
 		// check for interrupt
-		if(cpu.intr&&cpu.eflags.IF)
-		{
-			uint8_t intr_no=i8259_query_intr_no();
-			assert(intr_no!=I8259_NO_INTR);
-			i8259_ack_intr();
-			raise_intr(intr_no);
-		}
+		do_intr();
+		
 #endif
 	}
 	if (nemu_state == NEMU_STOP)
