@@ -8,6 +8,12 @@ typedef struct
 	uint32_t base;
 } GDTR;
 
+typedef struct
+{
+	uint32_t base;
+	uint16_t limit;
+} IDTR;
+
 typedef union {
 	struct
 	{
@@ -22,10 +28,11 @@ typedef union {
 	uint32_t val;
 } CR0;
 
-typedef union{
-	struct{
-		uint32_t reserve:12;
-		uint32_t pdtr:20;
+typedef union {
+	struct
+	{
+		uint32_t reserve : 12;
+		uint32_t pdtr : 20;
 	};
 	uint32_t val;
 } CR3;
@@ -41,12 +48,13 @@ typedef struct
 		};
 		uint16_t val;
 	};
-	struct{
+	struct
+	{
 		uint32_t base;
 		uint32_t limit;
-		uint32_t type:5;
-		uint32_t privilege_level:2;
-		uint32_t soft_use:1;
+		uint32_t type : 5;
+		uint32_t privilege_level : 2;
+		uint32_t soft_use : 1;
 	};
 } SegReg;
 
