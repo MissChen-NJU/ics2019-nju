@@ -38,16 +38,19 @@ uint32_t loader()
 		{
 			/* copy the segment from the ELF file to its proper memory area */
 			/* zeror the memory area [vaddr + file_sz, vaddr + mem_sz) */
-#ifdef IA32_PAGE
+
 			uint32_t paddr = mm_malloc(ph->p_vaddr, ph->p_memsz);
-#endif
-			void* dest=(void*)paddr;
-			void* src=(void*)(ph->p_offset);
-			//ide_read((uint8_t *)ph->p_vaddr, ph->p_offset, ph->p_filesz);
-			memcpy((void *)dest, (void *)src, ph->p_filesz);
-			if (ph->p_memsz > ph->p_filesz)
-			{
-				memset((void *)(paddr + ph->p_filesz), 0, ph->p_memsz - ph->p_filesz);
+			paddr=mm_malloc(ph->p_vaddr,ph->p_memsz);
+			//Log("malloc success,offset is %x\n",ph->p_offset);
+			memcpy((void *)paddr,(void *)(elf+ph->p_offset),ph->p_filesz);
+			//ide_read((void *)paddr,ELF_OFFSET_IN_DISK+ph->p_offset,ph->p_filesz);
+			//Log("clear success\n");
+			//ide_read((void *)ph->p_vaddr, ph->p_offset, ph->p_filesz);
+			for(int i=0;i<ph->p_filesz;i++){
+				*((uint8_t *)ph->p_vaddr+i)=*((uint8_t *)ph->p_offset+i);
+			}
+			if(ph->p_memsz>ph->p_filesz){
+				memset((void *)(paddr+ph->p_filesz),0,ph->p_memsz-ph->p_filesz);
 			}
 			
 
