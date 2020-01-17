@@ -45,6 +45,8 @@ extern uint8_t data_size;
 #include "cpu/instr/lgdt.h"
 #include "cpu/instr/lidt.h"
 #include "cpu/instr/cli.h"
+#include "cpu/instr/sti.h"
+#include "cpu/instr/int.h"
 #include "cpu/instr/flags.h"
 #include "cpu/instr/group.h"
 #include "cpu/instr/special.h"
