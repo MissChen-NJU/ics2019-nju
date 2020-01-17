@@ -43,7 +43,7 @@ make_instr_func(pusha)
 {
     uint32_t temp=cpu.esp;
     opr_dest.data_size=32;
-    opr_dest.type=OPE_MEM;
+    opr_dest.type=OPR_MEM;
     opr_dest.sreg=SREG_DS;
 
     cpu.esp-=data_size/8;
