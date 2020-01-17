@@ -22,8 +22,6 @@ void raise_intr(uint8_t intr_no)
 		cpu.eflags.IF=0;
 	}
 	cpu.eip=(gatedesc->offset_31_16<<16)+gatedesc->offset_15_0;
-	
-
 #endif
 }
 
